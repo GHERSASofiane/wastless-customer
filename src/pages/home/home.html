@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label position="floating">Your mail</ion-label>
+    <ion-input [(ngModel)]="UserMail" type="email" autofocus="true" clear-input="true" inputmode="email" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z]{2,10}"
+      required="true" spellcheck="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Your password</ion-label>
+    <ion-input [(ngModel)]="UserPassword" type="password" clear-input="true" inputmode="password" required="true"></ion-input>
+  </ion-item>
+
+
+
+  <ion-item><br>
+    <button ion-button round (click)="appelget()" block> Log In </button><br>
+    <button ion-button round block (click)="showAlert()"> Sign Up</button>
+  </ion-item>
+
+
+
+
+
+</ion-content>

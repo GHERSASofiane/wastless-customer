@@ -1,0 +1,7 @@
+{
+  "name": "wastless-customer",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
