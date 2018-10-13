@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { WeatherPage } from '../weather/weather';
+ 
 
 @IonicPage({
   name: 'PageSearch'
@@ -28,4 +27,8 @@ export class OfferSearchPage {
     // TODO recherche dans serve
   }
 
+  public goToPageOfferConsult(): void {
+    // go to the MyPage component
+    this.navCtrl.push('PageOfferConsult');
+  }
 }
