@@ -3,6 +3,7 @@
     <ion-title>
       Ionic Blank
     </ion-title>
+
   </ion-navbar>
 </ion-header>
 
@@ -10,6 +11,16 @@
 
 <ion-content padding>
 
+    <ion-fab top right edge>
+        <button ion-fab mini><ion-icon name="apps"></ion-icon></button>
+        <ion-fab-list>
+          <button ion-fab title="Mon profil"><ion-icon name="home"></ion-icon></button>
+          <button ion-fab title="Recherche" (click)="goToPageSearch()" ><ion-icon name="search"></ion-icon></button>
+          <button ion-fab title="Ajout" ><ion-icon name="add"></ion-icon></button>
+          <button ion-fab title="Archive" ><ion-icon name="archive"></ion-icon></button>
+        </ion-fab-list>
+      </ion-fab>
+  
   <ion-item>
     <ion-label position="floating">Your mail</ion-label>
     <ion-input [(ngModel)]="UserMail" type="email" autofocus="true" clear-input="true" inputmode="email" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z]{2,10}"
@@ -18,7 +29,7 @@
 
   <ion-item>
     <ion-label position="floating">Your password</ion-label>
-    <ion-input [(ngModel)]="UserPassword" type="password" clear-input="true" inputmode="password" required="true"></ion-input>
+    <ion-input [(ngModel)]="UserPassword" type="password" clear-input="true" inputmode="password" required="true" ></ion-input>
   </ion-item>
 
 
@@ -27,9 +38,6 @@
     <button ion-button round (click)="appelget()" block> Log In </button><br>
     <button ion-button round block (click)="showAlert()"> Sign Up</button>
   </ion-item>
-
-
-
 
 
 </ion-content>

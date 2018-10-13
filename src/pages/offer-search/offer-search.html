@@ -1,4 +1,3 @@
- 
 <ion-header>
 
   <ion-navbar>
@@ -10,6 +9,26 @@
 
 <ion-content padding>
 
-    <page-weather></page-weather> 
-<h1>GHERSA </h1>
+
+  <page-weather></page-weather>
+
+  <ion-searchbar (keyup.enter)="getOffres($event)"></ion-searchbar>
+  <ion-list> 
+
+      <ion-item>
+        <div class="card">
+          <img class="card-img-top" src="http://images.mortderire.com/images/rire-de-hyene.jpg" alt="Card image" style="width:100px;height: 50px;">
+          <div class="card-body">
+            <h5 class="card-title">ProductName <small>UserName</small> </h5>
+            <p class="card-text">ProductDescription</p>
+            <ion-badge item-end>Ajouter Le : 2018-11-13</ion-badge>
+            <ion-badge item-end>260 EUR</ion-badge>
+            <a href="#" class="btn btn-primary">Plus <ion-icon name="eye"></ion-icon></a>
+          </div>
+        </div>
+      </ion-item> 
+      
+  </ion-list>
+
+
 </ion-content>

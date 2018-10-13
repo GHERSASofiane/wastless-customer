@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular'; 
 import { AlertController } from 'ionic-angular'; 
-
+ 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -10,7 +10,7 @@ export class HomePage {
 
   UserMail = '';
   UserPassword = ''; 
-
+ 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
      
     console.log("ghersa");
@@ -19,6 +19,11 @@ export class HomePage {
   /**
    * name
    */
+  public goToPageSearch(): void {
+    // go to the MyPage component
+    this.navCtrl.push('PageSearch');
+  }
+
   public showAlert(): void {
     const alert = this.alertCtrl.create({
       title: 'New Friend!',
