@@ -4,12 +4,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 // import { HomePage } from '../pages/home/home';
-import { WeatherPage } from '../pages/weather/weather';
+// import { WeatherPage } from '../pages/weather/weather';
+import { OfferSearchPage } from '../pages/offer-search/offer-search';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = WeatherPage;//HomePage;
+  rootPage:any = OfferSearchPage;//WeatherPage;//HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

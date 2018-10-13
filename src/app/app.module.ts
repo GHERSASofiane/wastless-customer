@@ -7,12 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WeatherPage } from '../pages/weather/weather';
+import { OfferSearchPage } from '../pages/offer-search/offer-search';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    WeatherPage
+    WeatherPage,
+    OfferSearchPage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { WeatherPage } from '../pages/weather/weather';
   entryComponents: [
     MyApp,
     HomePage,
-    WeatherPage
+    WeatherPage,
+    OfferSearchPage
   ],
   providers: [
     StatusBar,

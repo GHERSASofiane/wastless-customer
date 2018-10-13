@@ -73,12 +73,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_weather_weather__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_offer_search_offer_search__ = __webpack_require__(271);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -95,13 +97,15 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_weather_weather__["a" /* WeatherPage */]
+                __WEBPACK_IMPORTED_MODULE_7__pages_weather_weather__["a" /* WeatherPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_offer_search_offer_search__["a" /* OfferSearchPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/weather/weather.module#WeatherPageModule', name: 'WeatherPage', segment: 'weather', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/weather/weather.module#WeatherPageModule', name: 'WeatherPage', segment: 'weather', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/offer-search/offer-search.module#OfferSearchPageModule', name: 'OfferSearchPage', segment: 'offer-search', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -109,7 +113,8 @@ var AppModule = /** @class */ (function () {
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_weather_weather__["a" /* WeatherPage */]
+                __WEBPACK_IMPORTED_MODULE_7__pages_weather_weather__["a" /* WeatherPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_offer_search_offer_search__["a" /* OfferSearchPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
@@ -134,7 +139,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_weather_weather__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_offer_search_offer_search__ = __webpack_require__(271);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -149,10 +154,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 // import { HomePage } from '../pages/home/home';
+// import { WeatherPage } from '../pages/weather/weather';
 
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_weather_weather__["a" /* WeatherPage */]; //HomePage;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_offer_search_offer_search__["a" /* OfferSearchPage */]; //WeatherPage;//HomePage;
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -163,9 +169,10 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -229,6 +236,52 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 271:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfferSearchPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the OfferSearchPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var OfferSearchPage = /** @class */ (function () {
+    function OfferSearchPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    OfferSearchPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad OfferSearchPage');
+    };
+    OfferSearchPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-offer-search',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-search/offer-search.html"*/' \n<ion-header>\n\n  <ion-navbar>\n    <ion-title>OfferSearch</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <page-weather></page-weather> \n<h1>GHERSA </h1>\n</ion-content>\n'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-search/offer-search.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
+    ], OfferSearchPage);
+    return OfferSearchPage;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=offer-search.js.map
+
+/***/ }),
+
 /***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -263,7 +316,7 @@ var WeatherPage = /** @class */ (function () {
     };
     WeatherPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-weather',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/weather/weather.html"*/' \n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Weather</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  \n  \n<div id="demo" class="carousel slide" data-ride="carousel">\n \n  <!-- The slideshow -->\n  <div class="carousel-inner">\n    <div class="carousel-item active bg-primary text-center">\n        <br> <h1>2018-10-13  18.6° <br><small>secondary text</small></h1><br> \n    </div>\n    <div class="carousel-item bg-primary text-center">\n        <br><h1>2018-10-14  18.6° <br><small>secondary text</small></h1><br> \n    </div>\n    <div class="carousel-item bg-primary text-center">\n        <br><h1>2018-10-15  18.6° <br><small>secondary text</small></h1><br>\n    </div>\n  </div>\n  \n  <!-- Left and right controls -->\n  <a class="carousel-control-prev" href="#demo" data-slide="prev">\n    <span class="carousel-control-prev-icon"></span>\n  </a>\n  <a class="carousel-control-next" href="#demo" data-slide="next">\n    <span class="carousel-control-next-icon"></span>\n  </a>\n</div>\n\n  \n</ion-content>\n'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/weather/weather.html"*/,
+            selector: 'page-weather',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/weather/weather.html"*/' \n<div id="demo" class="carousel slide" data-ride="carousel">\n \n  <!-- The slideshow -->\n  <div class="carousel-inner">\n    <div class="carousel-item active bg-primary text-center">\n        <br> <h1>2018-10-13  18.6° <br><small>secondary text</small></h1><br> \n    </div>\n    <div class="carousel-item bg-primary text-center">\n        <br><h1>2018-10-14  18.6° <br><small>secondary text</small></h1><br> \n    </div>\n    <div class="carousel-item bg-primary text-center">\n        <br><h1>2018-10-15  18.6° <br><small>secondary text</small></h1><br>\n    </div>\n  </div>\n  \n  <!-- Left and right controls -->\n  <a class="carousel-control-prev" href="#demo" data-slide="prev">\n    <span class="carousel-control-prev-icon"></span>\n  </a>\n  <a class="carousel-control-next" href="#demo" data-slide="next">\n    <span class="carousel-control-next-icon"></span>\n  </a>\n</div>\n \n'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/weather/weather.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], WeatherPage);

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { WeatherPage } from '../weather/weather';
+
 /**
  * Generated class for the OfferSearchPage page.
  *
