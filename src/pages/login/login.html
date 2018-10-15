@@ -7,12 +7,24 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <ion-title>login</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<div id="container">
+  <ion-item>
+    <ion-label stacked>Email</ion-label>
+    <ion-input type="email" [(ngModel)]="user.userMail" ></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label stacked>Password : </ion-label>
+    <ion-input type="password" [(ngModel)]="user.userPassword"></ion-input>
+  </ion-item>
+  
+  <button ion-button (tap)="logIn()" id="login"> Log In </button>
+</div>
 </ion-content>

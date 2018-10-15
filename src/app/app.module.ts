@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,6 +21,7 @@ import { SignOutPage } from '../pages/sign-out/sign-out';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { ValidateProductPage } from '../pages/validate-product/validate-product';
 import { ViewHistoryPage } from '../pages/view-history/view-history';
+import { UserHomePage } from '../pages/user-home/user-home';
 
 
 @NgModule({
@@ -37,11 +40,13 @@ import { ViewHistoryPage } from '../pages/view-history/view-history';
     SignOutPage,
     SignUpPage,
     ValidateProductPage,
-    ViewHistoryPage
+    ViewHistoryPage,
+    UserHomePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +64,8 @@ import { ViewHistoryPage } from '../pages/view-history/view-history';
     SignOutPage,
     SignUpPage,
     ValidateProductPage,
-    ViewHistoryPage
+    ViewHistoryPage,
+    UserHomePage
 
   ],
   providers: [

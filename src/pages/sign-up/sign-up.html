@@ -1,5 +1,5 @@
 <!--
-  Generated template for the SignUpPage page.
+  Generated template for the InscriptionPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +7,49 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>SignUp</ion-title>
+    <ion-title>inscription</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-icon name="person-add" id="person"></ion-icon>
+    <div id="container">
+        
+        <ion-item>
+            <ion-label stacked>userName : </ion-label>
+            <ion-input type="text" [(ngModel)]="user.userName"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.userMail" ></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label stacked>Password : </ion-label>
+          <ion-input type="password" [(ngModel)]="user.userPassword"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>user Address : </ion-label>
+            <ion-input type="text" [(ngModel)]="user.userAddress"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label stacked>user Phone : </ion-label>
+            <ion-input type="tel" [(ngModel)]="user.userPhone"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>user Picture : </ion-label>
+            <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+        </ion-item>
+    
+        <button ion-button (tap)="logUp()" id="logup"> LogUp </button>
+        
+      </div>
 
 </ion-content>
