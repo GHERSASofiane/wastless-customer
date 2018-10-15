@@ -14,5 +14,27 @@
 
 
 <ion-content padding>
+  <ion-searchbar  (keyup.enter)="getOffres($event)" > </ion-searchbar>
+<ion-list>
+
+
+  <ion-item *ngFor="let off of offrs">
+    <div class="row align-items-center">
+
+      <img class="col-12 col-md-3" width="20%" alt="" src="http://images.mortderire.com/images/rire-de-hyene.jpg">
+
+      <div class="col-12 col-md-6"><br>
+        <h3>{{off.ProductName}} : <small>UserName</small> </h3>
+        <p>{{off.ProductDescription}}</p>
+        <ion-badge item-end>Ajouter Le : 2018-11-13</ion-badge>
+        <ion-badge item-end>260 EUR</ion-badge>
+        <a class="btn btn-primary my-3 btn-block" (click)="goToPageOfferConsult()">View Details <ion-icon name="eye"></ion-icon>
+        </a>
+      </div>
+
+    </div>
+  </ion-item>
+
+</ion-list>
 
 </ion-content>

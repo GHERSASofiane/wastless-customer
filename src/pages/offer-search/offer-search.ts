@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { OfferConsultPage } from '../offer-consult/offer-consult';
 
+import { TabOffs } from '../class/taboff';
 /**
  * Generated class for the OfferSearchPage page.
  *
@@ -15,11 +17,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OfferSearchPage {
 
+  public OffresAChercher;
+  public offrs = TabOffs;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OfferSearchPage');
+  }
+
+  public getOffres(ev: any): void {
+  
+    this.OffresAChercher = ev.target.value;
+    // TODO recherche dans serve
+  }
+
+  public goToPageOfferConsult(): void {
+    // go to the MyPage component
+    this.navCtrl.push(OfferConsultPage);
   }
 
 }
