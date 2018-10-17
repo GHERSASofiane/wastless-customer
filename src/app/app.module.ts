@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+
 
 
 import { MyApp } from './app.component';
@@ -22,10 +23,16 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import { ValidateProductPage } from '../pages/validate-product/validate-product';
 import { ViewHistoryPage } from '../pages/view-history/view-history';
 import { UserHomePage } from '../pages/user-home/user-home';
+import { AuthProvider } from '../providers/auth/auth';
+import { TokenInterceptorProvider } from '../providers/token-interceptor/token-interceptor';
+import { IonicStorageModule } from '@ionic/storage';
+import { WeatherPage } from '../pages/weather/weather';
+import { UserHomeServiceProvider } from '../providers/user-home-service/user-home-service';
 
 
 @NgModule({
   declarations: [
+   
     MyApp,
     HomePage,
     AddOfferPage,
@@ -41,12 +48,17 @@ import { UserHomePage } from '../pages/user-home/user-home';
     SignUpPage,
     ValidateProductPage,
     ViewHistoryPage,
-    UserHomePage
+    UserHomePage,
+    WeatherPage,
+    
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
+   
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,13 +77,22 @@ import { UserHomePage } from '../pages/user-home/user-home';
     SignUpPage,
     ValidateProductPage,
     ViewHistoryPage,
-    UserHomePage
+    UserHomePage,
+    WeatherPage
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    { 
+      provide : HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorProvider,
+      multi: true
+    },
+    UserHomeServiceProvider
+    
   ]
 })
 export class AppModule {}

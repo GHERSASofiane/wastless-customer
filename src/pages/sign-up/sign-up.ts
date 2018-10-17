@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../class/user';
 import { Reponse } from '../class/reponse';
-import { Http } from '@angular/http';
+
 import { UserHomePage } from '../user-home/user-home';
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the SignUpPage page.
@@ -21,11 +22,10 @@ export class SignUpPage {
 
   private user = new User("","");
   private reponse : Reponse;
-  private url = "https://blowless.herokuapp.com/signup";
   private selectedFile : File = null;
 
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
+  constructor(private _auth:AuthProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -49,6 +49,18 @@ export class SignUpPage {
 
   logUp(){
   
+    this._auth.register(this.user).subscribe
+      (
+        res => 
+        {
+          console.log(res);
+          localStorage.setItem('token', res.token);
+          this.navCtrl.push(UserHomePage);
+        },
+        err => console.log(err)
+      );
+
+  /**  
   this.http.post(this.url, JSON.stringify(this.user))
   .subscribe(
               res =>
@@ -64,7 +76,7 @@ export class SignUpPage {
                },
                error => {console.log(error)}
               );
-
+*/
 }
 
 }

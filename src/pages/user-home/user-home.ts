@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../class/user';
+import { AuthProvider } from '../../providers/auth/auth';
+import { UserHomeServiceProvider } from '../../providers/user-home-service/user-home-service';
+import { HomePage } from '../home/home';
+import { Offer } from '../class/Offer';
 
 /**
  * Generated class for the UserHomePage page.
@@ -17,15 +21,26 @@ import { User } from '../class/user';
 export class UserHomePage {
 
   user : User;
-  
+  products: Offer[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user = navParams.get('user');
-    alert(this.user.userName);
-   
+  constructor(public navCtrl: NavController, private _auth:AuthProvider, private _userHome: UserHomeServiceProvider) {   
   }
 
   
+  ionViewCanEnter()
+  {
+    if (this._auth.loggedIn())
+    {
+      this.user = this._auth.getUserDetails();
+      this.offres();
+      return true;
+    }
+    else
+    {
+      this.navCtrl.push(HomePage);
+      return false;
+    }
+  }
 
 
   updateProfile(){
@@ -49,8 +64,17 @@ export class UserHomePage {
 
   offres()
   {
-    alert("offres");
+    this._userHome.getMyProducts(this.user.userId).subscribe
+      (
+        res => 
+        {
+          console.log(res);
+         
+        },
+        err => console.log(err)
+      );
   }
  
+
 
 }
