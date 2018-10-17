@@ -8,6 +8,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { HttpClient } from '@angular/common/http';
 
 import { UserHomePage } from '../user-home/user-home';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,49 +28,28 @@ export class LoginPage {
   reponse : Reponse;
   
 
-  constructor(private _auth: AuthProvider, public http: HttpClient, public navCtrl: NavController, private navParams: NavParams) {
+  constructor(private _auth: AuthProvider, public http: HttpClient, public navCtrl: NavController, private navParams: NavParams, private _store:Storage) {
     this.user = new User("","");
+    _store.set('token','');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
-  
 
   logIn()
   {
+
 
     this._auth.login(this.user).subscribe
       (
         res => 
               {
                 console.log(res);
-                localStorage.setItem('token', res.token);
+                this._store.set('token', res.token);
                 this.navCtrl.push(UserHomePage);
               //  this.navCtrl.setRoot(WeatherPage);
               },
         err => console.log(err)
       );
-    /** 
-    this.http.post(this.url, JSON.stringify(this.user))
-             .subscribe(
-                         res =>
-                          {
-                              this.reponse = res.json();
-                                  if(this.reponse.status == "ok")
-                                  {
-                                    
-                                    this.user = this.reponse.reponse;
-                                    this.navCtrl.setRoot(UserHomePage, {user : this.user});
-                                  //  this.navCtrl.push(UserHomePage, {user : this.user});
-                                  }
-                                 else
-                                  alert(this.reponse.message);
-                          },
-                          error => {console.log(error)}
-                         );
-       */  
+    
   
     
   }

@@ -56,6 +56,7 @@ var HomePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__user_home_user_home__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(346);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -71,6 +72,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -78,52 +80,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(_auth, http, navCtrl, navParams) {
+    function LoginPage(_auth, http, navCtrl, navParams, _store) {
         this._auth = _auth;
         this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this._store = _store;
         this.user = new __WEBPACK_IMPORTED_MODULE_2__class_user__["a" /* User */]("", "");
+        _store.set('token', '');
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
-    };
     LoginPage.prototype.logIn = function () {
         var _this = this;
         this._auth.login(this.user).subscribe(function (res) {
             console.log(res);
-            localStorage.setItem('token', res.token);
+            _this._store.set('token', res.token);
             _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__user_home_user_home__["a" /* UserHomePage */]);
             //  this.navCtrl.setRoot(WeatherPage);
         }, function (err) { return console.log(err); });
-        /**
-        this.http.post(this.url, JSON.stringify(this.user))
-                 .subscribe(
-                             res =>
-                              {
-                                  this.reponse = res.json();
-                                      if(this.reponse.status == "ok")
-                                      {
-                                        
-                                        this.user = this.reponse.reponse;
-                                        this.navCtrl.setRoot(UserHomePage, {user : this.user});
-                                      //  this.navCtrl.push(UserHomePage, {user : this.user});
-                                      }
-                                     else
-                                      alert(this.reponse.message);
-                              },
-                              error => {console.log(error)}
-                             );
-           */
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\Users\Naim\Desktop\DAR\wastless-customer\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n<div id="container">\n\n  <ion-item>\n\n    <ion-label stacked>Email</ion-label>\n\n    <ion-input type="email" [(ngModel)]="user.userMail" ></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label stacked>Password : </ion-label>\n\n    <ion-input type="password" [(ngModel)]="user.userPassword"></ion-input>\n\n  </ion-item>\n\n  \n\n  <button ion-button (tap)="logIn()" id="login"> Log In </button>\n\n\n\n</div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Naim\Desktop\DAR\wastless-customer\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" && _e || Object])
     ], LoginPage);
     return LoginPage;
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -1302,7 +1284,9 @@ var TokenInterceptorProvider = /** @class */ (function () {
             var clone = void 0;
             clone = request.clone({
                 setHeaders: {
-                    'Authorization': "Bearer " + token
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    Authorization: "Bearer " + token
                 }
             });
             return clone;
@@ -1329,6 +1313,7 @@ var TokenInterceptorProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth0_angular_jwt__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(346);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1341,6 +1326,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /*
   Generated class for the AuthProvider provider.
 
@@ -1348,8 +1334,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.
 */
 var AuthProvider = /** @class */ (function () {
-    function AuthProvider(http) {
+    function AuthProvider(http, _store) {
         this.http = http;
+        this._store = _store;
         this._loginUrl = "https://wastless.herokuapp.com/authen";
         this._registerUrl = "https://wastless.herokuapp.com/signup";
     }
@@ -1360,24 +1347,25 @@ var AuthProvider = /** @class */ (function () {
         return this.http.post(this._loginUrl, user);
     };
     AuthProvider.prototype.loggedIn = function () {
-        return !!localStorage.getItem('token');
+        return !!this._store.get('token');
     };
     AuthProvider.prototype.getToken = function () {
-        return localStorage.getItem('token');
+        return this._store.get('token');
     };
     AuthProvider.prototype.getUserDetails = function () {
         var helper = new __WEBPACK_IMPORTED_MODULE_2__auth0_angular_jwt__["a" /* JwtHelperService */]();
-        var t = helper.decodeToken(localStorage.getItem('token'));
+        var token = this._store.get('token');
+        var t = helper.decodeToken(token);
         var user = t;
         console.log(user);
         return user;
     };
     AuthProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _b || Object])
     ], AuthProvider);
     return AuthProvider;
-    var _a;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=auth.js.map
