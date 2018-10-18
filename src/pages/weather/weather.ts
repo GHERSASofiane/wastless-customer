@@ -4,6 +4,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { User } from '../class/user';
+import { Storage } from '@ionic/storage';
 
 
 /**
@@ -24,25 +25,18 @@ export class WeatherPage {
 
   
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _auth: AuthProvider) {
+  constructor(public navCtrl: NavController, private _store: Storage) {
     
   }
 
-  ionViewCanEnter()
+  popView(){
+   
+    this.navCtrl.pop();
+  }
+
+  ionViewWillLeave()
   {
-    if (this._auth.loggedIn())
-    {
-      const helper = new JwtHelperService();
-    let t = helper.decodeToken(localStorage.getItem('token'));
-    let user: User = t;
-    console.log(user.userMail)
-      return true;
-    }
-    else
-    {
-      this.navCtrl.push(HomePage);
-      return false;
-    }
+    this._store.remove('token');
   }
 
 }

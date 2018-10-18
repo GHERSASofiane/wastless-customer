@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 
 import { User } from '../class/user';
@@ -8,7 +8,8 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { HttpClient } from '@angular/common/http';
 
 import { UserHomePage } from '../user-home/user-home';
-import { Storage } from '@ionic/storage';
+
+
 
 /**
  * Generated class for the LoginPage page.
@@ -28,29 +29,27 @@ export class LoginPage {
   reponse : Reponse;
   
 
-  constructor(private _auth: AuthProvider, public http: HttpClient, public navCtrl: NavController, private navParams: NavParams, private _store:Storage) {
+  constructor(private _auth: AuthProvider, public http: HttpClient, public navCtrl: NavController) {
     this.user = new User("","");
-    _store.set('token','');
+    
   }
 
 
   logIn()
   {
-
-
+   
     this._auth.login(this.user).subscribe
       (
         res => 
               {
-                console.log(res);
-                this._store.set('token', res.token);
+                localStorage.setItem('token', res.token); 
                 this.navCtrl.push(UserHomePage);
-              //  this.navCtrl.setRoot(WeatherPage);
+              
               },
         err => console.log(err)
+      
       );
     
-  
     
   }
 

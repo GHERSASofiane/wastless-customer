@@ -1,9 +1,6 @@
 
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { User } from '../../pages/class/user';
 import { Storage } from '@ionic/storage';
 
 
@@ -19,6 +16,7 @@ export class AuthProvider {
 
   private _loginUrl = "https://wastless.herokuapp.com/authen";
   private _registerUrl = "https://wastless.herokuapp.com/signup";
+  private token : string;
 
   constructor(private http: HttpClient, private _store: Storage){}
 
@@ -34,22 +32,17 @@ export class AuthProvider {
 
   loggedIn()
   {
-    return !!this._store.get('token');
+    return !!localStorage.getItem('token');
+  
   }
 
   getToken()
   {
-    return this._store.get('token');
+    return localStorage.getItem('token');
+      
   }
 
-  getUserDetails()
-  {
-    const helper = new JwtHelperService();
-    let token : any = this._store.get('token');
-    let t = helper.decodeToken(token);
-    let user: User = t;
-    console.log(user);
-    return user;
-  }
+  
+  
 
 }

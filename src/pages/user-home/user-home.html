@@ -11,7 +11,9 @@
 
   
   <ion-avatar item-start float-right (tap)="updateProfile()" id="profile">
+  
     <img src="data:image/png;base64,{{user.userPicture}}" id="userPicture">    
+  
   </ion-avatar>
     
 </ion-header>
@@ -21,7 +23,36 @@
 
 <ul>
   <li *ngFor="let product of products">
+      
+      <ion-card>
+          <img src="data:image/png;base64,{{product.ProductPicture}}"/>
+          <ion-card-content>
+            <ion-card-title>
+                {{product.ProductName }}
+            </ion-card-title>
+            <p>
+              {{ product.ProductDescription }} 
+            </p>
+          </ion-card-content>
 
+          <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon ios="ios-cash" md="md-cash"></ion-icon>
+                  <div> {{ product.ProductPrice }} </div>
+                </button>
+              </ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                    {{ product.ProductDate }}
+                </ion-note>
+              </ion-col>
+            </ion-row>
+
+        </ion-card>
+    
+      
+       
   </li>
 </ul>
  

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
 import { User } from '../class/user';
 import { AuthProvider } from '../../providers/auth/auth';
 import { UserHomeServiceProvider } from '../../providers/user-home-service/user-home-service';
 import { HomePage } from '../home/home';
 import { Offer } from '../class/Offer';
+import { Storage } from '@ionic/storage';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Reponse } from '../class/reponse';
 
 /**
  * Generated class for the UserHomePage page.
@@ -20,28 +23,45 @@ import { Offer } from '../class/Offer';
 })
 export class UserHomePage {
 
-  user : User;
+  user : User = new User("","");
   products: Offer[];
 
-  constructor(public navCtrl: NavController, private _auth:AuthProvider, private _userHome: UserHomeServiceProvider) {   
+  constructor(public navCtrl: NavController, private _auth:AuthProvider, private _userHome: UserHomeServiceProvider, private _store:Storage) {   
   }
 
   
+  
+
   ionViewCanEnter()
   {
     if (this._auth.loggedIn())
     {
-      this.user = this._auth.getUserDetails();
-      this.offres();
+     const helper = new JwtHelperService();
+    
+    let token = localStorage.getItem('token');                                    
+    this.user = helper.decodeToken(token);
+    console.log(this.user);                                    
+    alert(this.user.userId);
+    this.offres();
       return true;
     }
     else
     {
-      this.navCtrl.push(HomePage);
-      return false;
+     
+    this.navCtrl.push(HomePage);
+    return false;
     }
   }
 
+  ionViewDidLeave()
+  {
+    localStorage.removeItem('token');
+  }
+
+  ionViewWillLeave()
+  {
+    localStorage.removeItem('token');
+  }
 
   updateProfile(){
    
@@ -64,15 +84,20 @@ export class UserHomePage {
 
   offres()
   {
-    this._userHome.getMyProducts(this.user.userId).subscribe
+   
+   
+    this._userHome.getMyProducts().subscribe
       (
         res => 
         {
-          console.log(res);
+          let rep = new Reponse("",""); 
+          rep = res;
+          this.products = rep.reponse;
          
         },
         err => console.log(err)
       );
+     
   }
  
 

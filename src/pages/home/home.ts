@@ -4,6 +4,7 @@ import { OfferSearchPage } from '../offer-search/offer-search';
 import { LoginPage } from '../login/login';
 import { SignUpPage } from '../sign-up/sign-up';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,9 +12,9 @@ import { SignUpPage } from '../sign-up/sign-up';
 export class HomePage {
 
 
-  constructor(public navCtrl: NavController) {
-     
+  constructor(public navCtrl: NavController){
   }
+
 
   login()
   {
