@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OfferConsultPage } from '../offer-consult/offer-consult';
-
-import { TabOffs } from '../class/taboff';
-import { User } from '../class/user';
-import { user } from '../test.1/user';
  
+import { User } from '../class/user'; 
+import { GetProductsProvider } from '../../providers/get-products/get-products';
+import { user } from '../test/user';
+import { Offer } from '../class/Offer';
+
 
 @IonicPage()
 @Component({
@@ -15,35 +16,49 @@ import { user } from '../test.1/user';
 export class OfferSearchPage {
 
   // Variables
-  userMe:  User;
-  
-  public OffresAChercher;
-  public offrs = TabOffs;
+  userMe: User;
+  public OffreAChercher: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public offrs: Offer[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public getproductsProv: GetProductsProvider) {
+
     this.userMe = user;
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OfferSearchPage');
+    this.getoffresBypage('' , 0);
   }
 
-  public getOffres(ev: any): void {
-  
-    this.OffresAChercher = ev.target.value;
-    // TODO recherche dans serve
-  }
+  // ********* Function Fin
 
-  public goToPageOfferConsult(): void {
+  public goToPageOfferConsult(id: number): void {
     // go to the MyPage component
     this.navCtrl.push(OfferConsultPage);
   }
 
 
-  // ********* Function Fin
-openPage(page: string): void {
-  alert("Ouvrir la page : "+page);
+  public openPage(page: string): void {
+    alert("Ouvrir la page : " + page);
   }
 
+
+  public getOffres(ev: any): void {
+
+    this.OffreAChercher = ev.target.value;
+    this.getoffresBypage(this.OffreAChercher  , 0 );
+    
+  }
+
+  public getoffresBypage(cle: string , page: number): void{
+
+    this.getproductsProv.GetProducts(cle, page).subscribe(
+      res => { this.offrs = res.reponse },
+      err => alert('Search error')
+    );
+
+  }
 
 }

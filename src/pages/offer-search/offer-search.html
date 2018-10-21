@@ -22,11 +22,11 @@
         <img class="col-12 col-md-3" alt="" src="http://images.mortderire.com/images/rire-de-hyene.jpg">
   
         <div class="col-12 col-md-6"><br>
-          <h3>{{off.ProductName}} : <small>UserName</small> </h3>
+          <h3>{{off.ProductName}} : <small>{{off.UserName}}</small> </h3>
           <p>{{off.ProductDescription}}</p>
-          <ion-badge item-end>Ajouter Le : 2018-11-13</ion-badge>
-          <ion-badge item-end>260 EUR</ion-badge>
-          <a class="btn btn-primary my-3 btn-block" (click)="goToPageOfferConsult()">View Details <ion-icon name="eye"></ion-icon>
+          <ion-badge item-end>Ajouter Le : {{off.ProductDate}} </ion-badge>
+          <ion-badge item-end>{{off.ProductPrice}} EUR</ion-badge>
+          <a class="btn btn-primary my-3 btn-block" (click)="goToPageOfferConsult(off.ProductId)">View Details <ion-icon name="eye"></ion-icon>
           </a>
         </div>
   

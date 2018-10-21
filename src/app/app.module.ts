@@ -30,6 +30,7 @@ import { WeatherPage } from '../pages/weather/weather';
 import { UserHomeServiceProvider } from '../providers/user-home-service/user-home-service';
 import { MenuPage } from '../pages/menu/menu';
 import { UpdateProfileServiceProvider } from '../providers/update-profile-service/update-profile-service';
+import { GetProductsProvider } from '../providers/get-products/get-products';
 
 
 
@@ -105,6 +106,7 @@ import { UpdateProfileServiceProvider } from '../providers/update-profile-servic
     },
     UserHomeServiceProvider,
     UpdateProfileServiceProvider,
+    GetProductsProvider,
    
     
   ]
