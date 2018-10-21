@@ -1,7 +1,8 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Storage } from '@ionic/storage';
+import { User } from '../../pages/class/user';
+
 
 
 
@@ -16,9 +17,9 @@ export class AuthProvider {
 
   private _loginUrl = "https://wastless.herokuapp.com/authen";
   private _registerUrl = "https://wastless.herokuapp.com/signup";
-  private token : string;
+  private _user = new User("", "");
 
-  constructor(private http: HttpClient, private _store: Storage){}
+  constructor(private http: HttpClient){}
 
   register(user)
   {
@@ -42,7 +43,15 @@ export class AuthProvider {
       
   }
 
-  
+  setUser(user: User)
+  {
+    this._user = user;
+  }
+
+  getUser()
+  {
+    return this._user;
+  }
   
 
 }

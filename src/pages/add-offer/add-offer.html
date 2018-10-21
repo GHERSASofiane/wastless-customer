@@ -13,6 +13,70 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
 
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>Wastless</strong>
+        <p> Economisons notre argent </p>
+      </h2>
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form">
+      <ion-item>
+        <ion-label floating>
+          Product Name
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="product.productName" name="productName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>
+          Product Date
+        </ion-label>
+        <ion-input type="Date" [(ngModel)]="product.ProductDate" name="ProductDate"></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label floating>
+          Product Description
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="product.ProductDescription" name="ProductDescription"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          Product Price
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="product.ProductPrice" name="ProductPrice"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>
+          Product Picture
+        </ion-label>
+        <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+      </ion-item>
+
+    </form>
+
+    
+    <div>
+      <button ion-button icon-start block color="dark" tappable (click)="addProduct()">
+        <ion-icon name="log-in"></ion-icon>
+        SIGN IN
+      </button>
+    </div>
+
+
+    <!-- Other links -->
+    <div text-center margin-top>
+      <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
+    </div>
+
+  </div>
 </ion-content>

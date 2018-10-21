@@ -5,7 +5,6 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { UserHomeServiceProvider } from '../../providers/user-home-service/user-home-service';
 import { HomePage } from '../home/home';
 import { Offer } from '../class/Offer';
-import { Storage } from '@ionic/storage';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Reponse } from '../class/reponse';
 
@@ -25,8 +24,9 @@ export class UserHomePage {
 
   user : User = new User("","");
   products: Offer[];
+  pages = [];
 
-  constructor(public navCtrl: NavController, private _auth:AuthProvider, private _userHome: UserHomeServiceProvider, private _store:Storage) {   
+  constructor(public navCtrl: NavController, private _auth:AuthProvider, private _userHome: UserHomeServiceProvider) {   
   }
 
   
@@ -34,14 +34,15 @@ export class UserHomePage {
 
   ionViewCanEnter()
   {
+     
     if (this._auth.loggedIn())
     {
-     const helper = new JwtHelperService();
-    
+    /** 
+    const helper = new JwtHelperService();
     let token = localStorage.getItem('token');                                    
     this.user = helper.decodeToken(token);
-    console.log(this.user);                                    
-    alert(this.user.userId);
+    */
+    this.user = this._auth.getUser(); 
     this.offres();
       return true;
     }
@@ -51,6 +52,7 @@ export class UserHomePage {
     this.navCtrl.push(HomePage);
     return false;
     }
+    
   }
 
   ionViewDidLeave()
@@ -63,14 +65,7 @@ export class UserHomePage {
     localStorage.removeItem('token');
   }
 
-  updateProfile(){
-   
-  }
-
-  logout()
-  {
-  //  this.navCtrl.push(HomePage);
-  }
+  
 
   achats()
   {
@@ -92,6 +87,7 @@ export class UserHomePage {
         {
           let rep = new Reponse("",""); 
           rep = res;
+          
           this.products = rep.reponse;
          
         },

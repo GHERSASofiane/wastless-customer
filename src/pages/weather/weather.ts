@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AuthProvider } from '../../providers/auth/auth';
-import { HomePage } from '../home/home';
-import {JwtHelperService} from '@auth0/angular-jwt';
-import { User } from '../class/user';
-import { Storage } from '@ionic/storage';
+import { IonicPage, NavController} from 'ionic-angular';
+
 
 
 /**
@@ -21,22 +17,8 @@ import { Storage } from '@ionic/storage';
 })
 export class WeatherPage {
 
-   
-
-  
-  
-  constructor(public navCtrl: NavController, private _store: Storage) {
+  constructor(public navCtrl: NavController) {
     
-  }
-
-  popView(){
-   
-    this.navCtrl.pop();
-  }
-
-  ionViewWillLeave()
-  {
-    this._store.remove('token');
   }
 
 }

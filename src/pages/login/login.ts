@@ -7,7 +7,9 @@ import { Reponse } from '../class/reponse';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HttpClient } from '@angular/common/http';
 
-import { UserHomePage } from '../user-home/user-home';
+import { SignUpPage } from '../sign-up/sign-up';
+import { MenuPage } from '../menu/menu';
+
 
 
 
@@ -27,6 +29,7 @@ export class LoginPage {
 
   user :  User;
   reponse : Reponse;
+  done = true;
   
 
   constructor(private _auth: AuthProvider, public http: HttpClient, public navCtrl: NavController) {
@@ -38,19 +41,34 @@ export class LoginPage {
   logIn()
   {
    
-    this._auth.login(this.user).subscribe
+    this.done = false;
+      this._auth.login(this.user).subscribe
       (
         res => 
               {
-                localStorage.setItem('token', res.token); 
-                this.navCtrl.push(UserHomePage);
+                this.user = res.reponse;
+                this._auth.setUser(this.user);
               
+                localStorage.setItem('token', res.token);
+
               },
-        err => console.log(err)
+        err => 
+        {
+          this.done = true;
+          console.log(err)
+        },
+        () => {
+               
+               this.done = true;
+               this.navCtrl.setRoot(MenuPage);
+              }
       
-      );
-    
-    
+      ); 
+  }
+
+  register()
+  {
+    this.navCtrl.push(SignUpPage)
   }
 
 }

@@ -1,9 +1,64 @@
+<!-- -->
+<ion-content padding class="animated fadeIn login auth-page"> 
+  <div class="login-content">
+  
+      <!-- Logo -->
+      <div padding-horizontal text-center class="animated fadeInDown">
+        <div class="logo"></div>
+        <h2 ion-text class="text-primary">
+          <strong>Wastless</strong>
+          <p> Economisons notre argent </p>
+        </h2>
+      </div>
+  
+      <!-- Login form -->
+      <form class="list-form">
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+            Email
+          </ion-label>
+          <ion-input type="email" [(ngModel)]="user.userMail" name="userMail"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+            Password
+          </ion-label>
+          <ion-input type="password" [(ngModel)]="user.userPassword" name="userPassword">
+          </ion-input>
+        </ion-item>
+      </form>
+  
+      
+      <div>
+        <button ion-button icon-start block color="dark" tappable (click)="logIn()">
+          <ion-icon name="log-in"></ion-icon>
+          SIGN IN
+          <ion-spinner id="spinner" name="circles" *ngIf="done == false"></ion-spinner> 
+        </button>
+      </div>
+  
+  
+      <!-- Other links -->
+      <div text-center margin-top>
+        <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
+      </div>
+  
+    </div>
+  </ion-content>
+  
+
+
+
 <!--
   Generated template for the LoginPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+<!--
 <ion-header>
 
   <ion-navbar>
@@ -29,3 +84,4 @@
 
 </div>
 </ion-content>
+-->

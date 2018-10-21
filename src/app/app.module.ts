@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -28,6 +28,9 @@ import { TokenInterceptorProvider } from '../providers/token-interceptor/token-i
 import { IonicStorageModule } from '@ionic/storage';
 import { WeatherPage } from '../pages/weather/weather';
 import { UserHomeServiceProvider } from '../providers/user-home-service/user-home-service';
+import { MenuPage } from '../pages/menu/menu';
+import { UpdateProfileServiceProvider } from '../providers/update-profile-service/update-profile-service';
+
 
 
 @NgModule({
@@ -50,6 +53,7 @@ import { UserHomeServiceProvider } from '../providers/user-home-service/user-hom
     ViewHistoryPage,
     UserHomePage,
     WeatherPage,
+    MenuPage
     
   ],
   imports: [
@@ -78,7 +82,8 @@ import { UserHomeServiceProvider } from '../providers/user-home-service/user-hom
     ValidateProductPage,
     ViewHistoryPage,
     UserHomePage,
-    WeatherPage
+    WeatherPage,
+    MenuPage
 
   ],
   providers: [
@@ -91,7 +96,9 @@ import { UserHomeServiceProvider } from '../providers/user-home-service/user-hom
       useClass: TokenInterceptorProvider,
       multi: true
     },
-    UserHomeServiceProvider
+    UserHomeServiceProvider,
+    UpdateProfileServiceProvider,
+   
     
   ]
 })

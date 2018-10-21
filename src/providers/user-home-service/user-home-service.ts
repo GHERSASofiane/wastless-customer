@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+
 
 
 /*
@@ -14,7 +14,7 @@ export class UserHomeServiceProvider {
 
   private _userHome = "https://wastless.herokuapp.com/userhome";
 
-  constructor(public http: HttpClient, private _store:Storage) {
+  constructor(public http: HttpClient) {
     
   }
 

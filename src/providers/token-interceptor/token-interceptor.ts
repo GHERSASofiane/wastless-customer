@@ -1,8 +1,6 @@
 
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import { _throw } from 'rxjs/observable/throw';
 import { AuthProvider } from '../auth/auth';
 import { Observable } from 'rxjs';
 
@@ -16,7 +14,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TokenInterceptorProvider implements HttpInterceptor{
 
-  constructor(private storage: Storage, private _injector: Injector) { }
+  constructor(private _injector: Injector) { }
    
  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
  {

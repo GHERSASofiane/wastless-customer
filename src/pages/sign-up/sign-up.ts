@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../class/user';
-import { Reponse } from '../class/reponse';
-
 import { UserHomePage } from '../user-home/user-home';
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -21,7 +19,6 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class SignUpPage {
 
   private user = new User("","");
-  private reponse : Reponse;
   private selectedFile : File = null;
 
   
