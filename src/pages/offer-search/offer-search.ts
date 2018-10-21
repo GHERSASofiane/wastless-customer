@@ -3,12 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OfferConsultPage } from '../offer-consult/offer-consult';
 
 import { TabOffs } from '../class/taboff';
-/**
- * Generated class for the OfferSearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { User } from '../class/user';
+import { user } from '../test.1/user';
+ 
 
 @IonicPage()
 @Component({
@@ -17,10 +14,14 @@ import { TabOffs } from '../class/taboff';
 })
 export class OfferSearchPage {
 
+  // Variables
+  userMe:  User;
+  
   public OffresAChercher;
   public offrs = TabOffs;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.userMe = user;
   }
 
   ionViewDidLoad() {
@@ -37,5 +38,12 @@ export class OfferSearchPage {
     // go to the MyPage component
     this.navCtrl.push(OfferConsultPage);
   }
+
+
+  // ********* Function Fin
+openPage(page: string): void {
+  alert("Ouvrir la page : "+page);
+  }
+
 
 }

@@ -1,40 +1,76 @@
-<!--
-  Generated template for the OfferSearchPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>OfferSearch</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-  <ion-searchbar  (keyup.enter)="getOffres($event)" > </ion-searchbar>
-<ion-list>
-
-
-  <ion-item *ngFor="let off of offrs">
-    <div class="row align-items-center">
-
-      <img class="col-12 col-md-3" width="20%" alt="" src="http://images.mortderire.com/images/rire-de-hyene.jpg">
-
-      <div class="col-12 col-md-6"><br>
-        <h3>{{off.ProductName}} : <small>UserName</small> </h3>
-        <p>{{off.ProductDescription}}</p>
-        <ion-badge item-end>Ajouter Le : 2018-11-13</ion-badge>
-        <ion-badge item-end>260 EUR</ion-badge>
-        <a class="btn btn-primary my-3 btn-block" (click)="goToPageOfferConsult()">View Details <ion-icon name="eye"></ion-icon>
-        </a>
+    <ion-navbar>
+  
+      <button ion-button menuToggle><ion-icon name="menu" menuToggle></ion-icon></button>
+      <ion-title>
+        Wastless
+      </ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-searchbar  (keyup.enter)="getOffres($event)" > </ion-searchbar>
+  <ion-list>
+  
+  
+    <ion-item *ngFor="let off of offrs">
+      <div class="row align-items-center">
+  
+        <img class="col-12 col-md-3" alt="" src="http://images.mortderire.com/images/rire-de-hyene.jpg">
+  
+        <div class="col-12 col-md-6"><br>
+          <h3>{{off.ProductName}} : <small>UserName</small> </h3>
+          <p>{{off.ProductDescription}}</p>
+          <ion-badge item-end>Ajouter Le : 2018-11-13</ion-badge>
+          <ion-badge item-end>260 EUR</ion-badge>
+          <a class="btn btn-primary my-3 btn-block" (click)="goToPageOfferConsult()">View Details <ion-icon name="eye"></ion-icon>
+          </a>
+        </div>
+  
       </div>
-
-    </div>
-  </ion-item>
-
-</ion-list>
-
-</ion-content>
+    </ion-item>
+  
+  </ion-list>
+  
+  </ion-content>
+  
+  
+  <ion-menu type="overlay" side="left" [content]="mycontent">
+  
+      <ion-header>
+          <ion-toolbar>
+            <ion-title  (click)="openPage('Profil')" >
+              <img src="{{userMe.userPicture}}" width="10%" height="10%" class="img-circle ">
+              {{userMe.userName}}
+            
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+   
+  
+    <ion-content>
+        <ion-list>
+           
+          <button ion-item (click)="openPage('homePage')">
+           <p> <ion-icon name="home"></ion-icon> Home </p>
+          </button> 
+   
+          <button ion-item (click)="openPage('friendsPage')">
+            <p>   <ion-icon name="add-circle"></ion-icon> Friends </p>
+          </button> 
+   
+          <button ion-item (click)="openPage('eventsPage')">
+            <p>   <ion-icon name="add-circle"></ion-icon> Events </p>
+          </button> 
+  
+          <button ion-item  menuClose detail-none >
+            <p>   <ion-icon name="add-circle"></ion-icon> Close Menu </p>
+          </button>
+   
+        </ion-list>
+      </ion-content>
+  </ion-menu>
+  <ion-nav #mycontent [root]="rootPage"></ion-nav>

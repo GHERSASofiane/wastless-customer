@@ -58,7 +58,14 @@ import { UpdateProfileServiceProvider } from '../providers/update-profile-servic
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      menuType: 'push',
+      platforms: {
+        ios: {
+          menuType: 'overlay',
+        }
+      }
+    }),
     HttpClientModule,
     IonicStorageModule.forRoot(),
    
