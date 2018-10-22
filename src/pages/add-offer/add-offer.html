@@ -1,9 +1,4 @@
-<!--
-  Generated template for the AddOfferPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -42,17 +37,18 @@
       </ion-item>
 
       <ion-item >
+        
         <ion-label floating>
           Product Description
         </ion-label>
-        <ion-input type="text" [(ngModel)]="product.ProductDescription" name="ProductDescription"></ion-input>
+        <ion-textarea type="text" [(ngModel)]="product.ProductDescription" name="ProductDescription" rows="5"></ion-textarea>
       </ion-item>
 
       <ion-item>
         <ion-label floating>
           Product Price
         </ion-label>
-        <ion-input type="text" [(ngModel)]="product.ProductPrice" name="ProductPrice"></ion-input>
+        <ion-input type="numbre" [(ngModel)]="product.ProductPrice" name="ProductPrice"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -66,16 +62,10 @@
 
     
     <div>
-      <button ion-button icon-start block color="dark" tappable (click)="addProduct()">
-        <ion-icon name="log-in"></ion-icon>
-        SIGN IN
+      <button ion-button icon-start block class="bg-info" tappable (click)="addProduct()">
+        <ion-icon name="md-checkmark-circle"></ion-icon>
+        Register
       </button>
-    </div>
-
-
-    <!-- Other links -->
-    <div text-center margin-top>
-      <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
     </div>
 
   </div>

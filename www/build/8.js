@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 312:
+/***/ 314:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OfferConsultPageModule", function() { return OfferConsultPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RemoveOfferPageModule", function() { return RemoveOfferPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__offer_consult__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__remove_offer__ = __webpack_require__(215);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var OfferConsultPageModule = /** @class */ (function () {
-    function OfferConsultPageModule() {
+var RemoveOfferPageModule = /** @class */ (function () {
+    function RemoveOfferPageModule() {
     }
-    OfferConsultPageModule = __decorate([
+    RemoveOfferPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__offer_consult__["a" /* OfferConsultPage */],
+                __WEBPACK_IMPORTED_MODULE_2__remove_offer__["a" /* RemoveOfferPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__offer_consult__["a" /* OfferConsultPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__remove_offer__["a" /* RemoveOfferPage */]),
             ],
         })
-    ], OfferConsultPageModule);
-    return OfferConsultPageModule;
+    ], RemoveOfferPageModule);
+    return RemoveOfferPageModule;
 }());
 
-//# sourceMappingURL=offer-consult.module.js.map
+//# sourceMappingURL=remove-offer.module.js.map
 
 /***/ })
 

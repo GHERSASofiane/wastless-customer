@@ -4,16 +4,10 @@ import { User } from '../class/user';
 import { AuthProvider } from '../../providers/auth/auth';
 import { UserHomeServiceProvider } from '../../providers/user-home-service/user-home-service';
 import { HomePage } from '../home/home';
-import { Offer } from '../class/Offer';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { Offer } from '../class/Offer'; 
 import { Reponse } from '../class/reponse';
 
-/**
- * Generated class for the UserHomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+ 
 
 @IonicPage()
 @Component({

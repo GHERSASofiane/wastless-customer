@@ -3,8 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { OfferSearchPage } from './offer-search';
 
 @NgModule({
-  declarations: [
-    OfferSearchPage,
+  declarations: [ 
   ],
   imports: [
     IonicPageModule.forChild(OfferSearchPage),

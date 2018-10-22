@@ -5,33 +5,31 @@
   
       <button ion-button menuToggle><ion-icon name="menu" menuToggle></ion-icon></button>
       <ion-title>
-        Wastless
+        <ion-searchbar  (keyup.enter)="getOffres($event)" > </ion-searchbar>
       </ion-title>
     </ion-navbar>
   
   </ion-header>
   
-  <ion-content padding>
-    <ion-searchbar  (keyup.enter)="getOffres($event)" > </ion-searchbar>
-  <ion-list>
+  <ion-content padding class="bg-dark">
+    
+  <ion-list *ngIf="OffLenght !== 0">
   
-  
-    <ion-item *ngFor="let off of offrs">
+    <div  *ngFor="let off of offrs">
+    <ion-item class="bg-secondary text-light"  (click)="goToPageOfferConsult(off.ProductId)">
       <div class="row align-items-center">
   
-        <img class="col-12 col-md-3" alt="" src="http://images.mortderire.com/images/rire-de-hyene.jpg">
+        <img class="col-12 col-md-3" alt="" src="https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg">
   
         <div class="col-12 col-md-6"><br>
-          <h3>{{off.ProductName}} : <small>{{off.UserName}}</small> </h3>
-          <p>{{off.ProductDescription}}</p>
-          <ion-badge item-end>Ajouter Le : {{off.ProductDate}} </ion-badge>
-          <ion-badge item-end>{{off.ProductPrice}} EUR</ion-badge>
-          <a class="btn btn-primary my-3 btn-block" (click)="goToPageOfferConsult(off.ProductId)">View Details <ion-icon name="eye"></ion-icon>
-          </a>
+          <h3>{{off.ProductName}} <small> <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge></small> </h3>
+          <p  class="text-light">{{off.ProductDescription}}</p>
+
         </div>
   
       </div>
-    </ion-item>
+    </ion-item><br>
+  </div>
   
   </ion-list>
   
@@ -42,9 +40,14 @@
   
       <ion-header>
           <ion-toolbar>
-            <ion-title  (click)="openPage('Profil')" >
-              <img src="{{userMe.userPicture}}" width="10%" height="10%" class="img-circle ">
-              {{userMe.userName}}
+            <ion-title  (click)="openPage('UserHomePage')"  >
+
+             <p style="color: #00ccff; font-family: Snell Roundhand, cursive; ">
+
+              <img src="{{userMe.userPicture}}" width="10%" height="10%" class="rounded-circle mr-4 ">
+               {{userMe.userName}} 
+
+              </p> 
             
             </ion-title>
           </ion-toolbar>
@@ -53,22 +56,30 @@
     <ion-content>
         <ion-list>
            
-          <button ion-item (click)="openPage('homePage')">
-           <p> <ion-icon name="home"></ion-icon> Home </p>
-          </button> 
-   
-          <button ion-item (click)="openPage('friendsPage')">
-            <p>   <ion-icon name="add-circle"></ion-icon> Friends </p>
-          </button> 
-   
-          <button ion-item (click)="openPage('eventsPage')">
-            <p>   <ion-icon name="add-circle"></ion-icon> Events </p>
-          </button> 
+             <button ion-item (click)="openPage('OfferSearchPage')">
+              <p> <ion-icon name="md-search" class="mr-5"></ion-icon> Search </p> 
+             </button> 
+
+             <button ion-item (click)="openPage('AddOfferPage')">
+              <p> <ion-icon name="md-add" class="mr-5"></ion-icon> Add </p>
+             </button> 
+
+             <button ion-item (click)="openPage('MyPubsPage')">
+                <p> <ion-icon name="md-albums" class="mr-5"></ion-icon> My publications </p>
+             </button> 
   
-          <button ion-item  menuClose detail-none >
-            <p>   <ion-icon name="add-circle"></ion-icon> Close Menu </p>
-          </button>
-   
+             <button ion-item (click)="openPage('DrivingPage')">
+              <p> <ion-icon name="md-basket" class="mr-5"></ion-icon> Driving </p>
+             </button> 
+
+             <button ion-item (click)="openPage('ViewHistoryPage')">
+                <p> <ion-icon name="ios-archive" class="mr-5"></ion-icon> History </p>
+             </button> 
+  
+             <button ion-item (click)="openPage('SignOutPage')">
+              <p> <ion-icon name="md-log-out" class="mr-5"></ion-icon> Sign Out </p>
+             </button> 
+       
         </ion-list>
       </ion-content>
   </ion-menu>

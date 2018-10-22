@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { OfferConsultPage } from '../offer-consult/offer-consult';
  
 import { User } from '../class/user'; 
@@ -16,20 +16,21 @@ import { Offer } from '../class/Offer';
 export class OfferSearchPage {
 
   // Variables
-  userMe: User;
+  public userMe: User;
   public OffreAChercher: string;
-
   public offrs: Offer[];
+  public OffLenght = 0;
+  public page: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public getproductsProv: GetProductsProvider) {
+              public getproductsProv: GetProductsProvider, public alertCtrl: AlertController) {
 
     this.userMe = user;
 
   }
 
   ionViewDidLoad() {
-    this.getoffresBypage('' , 0);
+    this.getoffresBypage('' , this.page);
   }
 
   // ********* Function Fin
@@ -41,24 +42,41 @@ export class OfferSearchPage {
 
 
   public openPage(page: string): void {
-    alert("Ouvrir la page : " + page);
+    this.navCtrl.setRoot(page);
   }
 
 
   public getOffres(ev: any): void {
-
+    this.page = 0 ;
     this.OffreAChercher = ev.target.value;
-    this.getoffresBypage(this.OffreAChercher  , 0 );
+    this.getoffresBypage(this.OffreAChercher  , this.page );
     
   }
 
   public getoffresBypage(cle: string , page: number): void{
 
     this.getproductsProv.GetProducts(cle, page).subscribe(
-      res => { this.offrs = res.reponse },
-      err => alert('Search error')
+      res => {   
+        if(res.status == "ok"){
+          this.offrs = res.reponse;
+          this.OffLenght = this.offrs.length;
+        }else {
+          this.showAlert("ERREUR",res.message);
+        }
+      },
+      err => this.showAlert("ERREUR","Erreur sur le serveur :( :( ")
     );
+    
 
   }
 
+  //*********** Function pour alert */
+  private showAlert(title: string, subTitle: string): void {
+    const alert = this.alertCtrl.create({
+      title: title,
+      subTitle: subTitle,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }

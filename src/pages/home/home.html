@@ -1,14 +1,18 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Wasteless
-    <button ion-button (tap)="login()"><ion-icon name="md-log-in"> LogIn </ion-icon>  </button>
-    <button ion-button (tap)="register()"> <ion-icon name="ios-create"> Register </ion-icon> </button>
-    <button ion-button (tap)="search()"> search </button>
+    <ion-title style="font-family: Snell Roundhand, cursive; ">
+     <p style="color: #00ccff;" > Wastless 
+    
+    <button ion-button (tap)="login()" class="btn btn-sm btn-info "><ion-icon name="md-log-in"> LogIn </ion-icon>  </button>
+    <button ion-button (tap)="register()" class="btn btn-sm btn-info"> <ion-icon name="ios-create"> Register </ion-icon> </button>
+  </p> 
   </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="bg-dark">
   
+  <button ion-button (tap)="search()"> search </button>
+ 
+
 </ion-content>
