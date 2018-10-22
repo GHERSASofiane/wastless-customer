@@ -1,11 +1,12 @@
 <ion-header>
   <ion-navbar>
-    <ion-title style="font-family: Snell Roundhand, cursive; ">
-     <p style="color: #00ccff;" > Wastless 
+    <ion-title style="font-family: Snell Roundhand, cursive; " class="row">
+     <div style="color: #00ccff;"> 
+      <label class="col-lg-9 col-sm-7 col-7 ">Wastless</label>  
     
-    <button ion-button (tap)="login()" class="btn btn-sm btn-info "><ion-icon name="md-log-in"> LogIn </ion-icon>  </button>
-    <button ion-button (tap)="register()" class="btn btn-sm btn-info"> <ion-icon name="ios-create"> Register </ion-icon> </button>
-  </p> 
+    <button ion-button (tap)="login()" class="btn btn-sm btn-info col-lg-1 col-sm-2 col-2 align-self-end"><ion-icon name="md-log-in"> LogIn </ion-icon>  </button>
+    <button ion-button (tap)="register()" class="btn btn-sm btn-info col-lg-1 col-sm-2 col-2 align-self-end"> <ion-icon name="ios-create"> Register </ion-icon> </button>
+  </div> 
   </ion-title>
   </ion-navbar>
 </ion-header>

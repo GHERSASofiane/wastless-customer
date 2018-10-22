@@ -12,27 +12,24 @@
   </ion-header>
   
   <ion-content padding class="bg-dark">
-    
-  <ion-list *ngIf="OffLenght !== 0">
-  
-    <div  *ngFor="let off of offrs">
-    <ion-item class="bg-secondary text-light"  (click)="goToPageOfferConsult(off.ProductId)">
-      <div class="row align-items-center">
-  
-        <img class="col-12 col-md-3" alt="" src="https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg">
-  
-        <div class="col-12 col-md-6"><br>
-          <h3>{{off.ProductName}} <small> <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge></small> </h3>
+
+  <div class="row" *ngIf="OffLenght !== 0" >
+  <ion-card  class="bg-secondary text-light col-sm-4 col-lg-3"  (click)="goToPageOfferConsult(off.ProductId)"  *ngFor="let off of offrs">
+      <img src="https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg"/>
+      <ion-card-content>
+        <ion-card-title>
+            <h3>{{off.ProductName}} 
+              <small> <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge></small> 
+            </h3>
+          </ion-card-title>
+        
+            
           <p  class="text-light">{{off.ProductDescription}}</p>
 
-        </div>
-  
-      </div>
-    </ion-item><br>
+        
+      </ion-card-content>
+    </ion-card>
   </div>
-  
-  </ion-list>
-  
   </ion-content>
   
   
