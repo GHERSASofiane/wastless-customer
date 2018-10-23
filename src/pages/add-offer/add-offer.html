@@ -2,40 +2,37 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>AddOffer</ion-title>
+    <div style="font-family: Snell Roundhand, cursive; " class="text-info">
+     Add Offer 
+  </div>
   </ion-navbar>
 
 </ion-header>
+ 
 
-
-<ion-content padding class="animated fadeIn login auth-page">
+<ion-content padding class="animated fadeIn login auth-page bg-dark">
   <div class="login-content">
 
     <!-- Logo -->
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
-      <h2 ion-text class="text-primary">
+      <h2 ion-text class="text-info">
         <strong>Wastless</strong>
         <p> Economisons notre argent </p>
       </h2>
+
+  <img src="product.ProductPicture" alt="">
     </div>
 
     <!-- Login form -->
-    <form class="list-form">
+    <form class="list-form  bg-dark">
       <ion-item>
         <ion-label floating>
           Product Name
         </ion-label>
-        <ion-input type="text" [(ngModel)]="product.productName" name="productName"></ion-input>
+        <ion-input type="text" [(ngModel)]="product.ProductName" name="productName"></ion-input>
       </ion-item>
-
-      <ion-item>
-        <ion-label stacked>
-          Product Date
-        </ion-label>
-        <ion-input type="Date" [(ngModel)]="product.ProductDate" name="ProductDate"></ion-input>
-      </ion-item>
-
+ 
       <ion-item >
         
         <ion-label floating>
@@ -48,14 +45,14 @@
         <ion-label floating>
           Product Price
         </ion-label>
-        <ion-input type="numbre" [(ngModel)]="product.ProductPrice" name="ProductPrice"></ion-input>
+        <ion-input type="number" [(ngModel)]="product.ProductPrice" name="ProductPrice"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label stacked>
           Product Picture
         </ion-label>
-        <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+        <ion-input type="file" (change)="onFileSelected($event)" accept="image/*"></ion-input>
       </ion-item>
 
     </form>
@@ -66,7 +63,11 @@
         <ion-icon name="md-checkmark-circle"></ion-icon>
         Register
       </button>
+
     </div>
 
   </div>
+
+  {{product.ProductDescription}}
 </ion-content>
+

@@ -17,7 +17,7 @@ export class OfferSearchPage {
 
   // Variables
   public userMe: User;
-  public OffreAChercher: string;
+  public OffreAChercher: string = '';
   public offrs: Offer[];
   public OffLenght = 0;
   public page: number = 0;
@@ -37,12 +37,12 @@ export class OfferSearchPage {
 
   public goToPageOfferConsult(id: number): void {
     // go to the MyPage component
-    this.navCtrl.push(OfferConsultPage);
+    this.navCtrl.push(OfferConsultPage, {id: id});
   }
 
 
   public openPage(page: string): void { 
-    this.navCtrl.setRoot(page);
+    this.navCtrl.push(page,{user: this.userMe});
   }
 
 
@@ -77,7 +77,7 @@ export class OfferSearchPage {
     }
     
   }
-
+ 
   public NextPage(): void{
     if(this.OffLenght !== 0){
       this.page = this.page + 1;

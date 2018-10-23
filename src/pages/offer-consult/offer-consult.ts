@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the OfferConsultPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { GetProductDetProvider } from '../../providers/get-product-det/get-product-det';
+import { OffreDetails } from '../class/OffreDetails';
+ 
 
 @IonicPage()
 @Component({
@@ -15,11 +11,41 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OfferConsultPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private id;
+  public infos: OffreDetails;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private prodDetProv: GetProductDetProvider, public alertCtrl: AlertController) {
+    this.id = navParams.get('id');
+    this.GetDetails();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OfferConsultPage');
   }
+
+  private GetDetails(): void{
+    this.prodDetProv.GetProductDetails(this.id).subscribe(
+      res => {   
+        if(res.status == "ok"){
+          this.infos = res.reponse; 
+          console.log(this.infos)
+        }else {
+          this.showAlert("ERREUR",res.message);
+        }
+      },
+      err => this.showAlert("ERREUR","Erreur sur le serveur :( :( ")
+    )
+  }
+
+    //*********** Function pour alert */
+    private showAlert(title: string, subTitle: string): void {
+      const alert = this.alertCtrl.create({
+        title: title,
+        subTitle: subTitle,
+        buttons: ['OK']
+      });
+      alert.present();
+    }
 
 }

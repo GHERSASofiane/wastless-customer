@@ -26,7 +26,9 @@ import { WeatherPage } from '../pages/weather/weather';
 import { UserHomeServiceProvider } from '../providers/user-home-service/user-home-service';
 import { MenuPage } from '../pages/menu/menu';
 import { UpdateProfileServiceProvider } from '../providers/update-profile-service/update-profile-service';
-import { GetProductsProvider } from '../providers/get-products/get-products'; 
+import { GetProductsProvider } from '../providers/get-products/get-products';
+import { AddProductProvider } from '../providers/add-product/add-product';
+import { GetProductDetProvider } from '../providers/get-product-det/get-product-det'; 
 
 
 
@@ -51,17 +53,17 @@ import { GetProductsProvider } from '../providers/get-products/get-products';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp,{
-      menuType: 'push',
-      platforms: {
-        ios: {
-          menuType: 'overlay',
-        }
-      }
-    }),
+    IonicModule.forRoot(MyApp),
     HttpClientModule,
     IonicStorageModule.forRoot(),
-   
+    // ,{
+    //   menuType: 'push',
+    //   platforms: {
+    //     ios: {
+    //       menuType: 'overlay',
+    //     }
+    //   }
+    // }
     
   ],
   bootstrap: [IonicApp],
@@ -95,6 +97,8 @@ import { GetProductsProvider } from '../providers/get-products/get-products';
     UserHomeServiceProvider,
     UpdateProfileServiceProvider,
     GetProductsProvider,
+    AddProductProvider,
+    GetProductDetProvider,
    
     
   ]
