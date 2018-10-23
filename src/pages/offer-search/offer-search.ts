@@ -41,7 +41,7 @@ export class OfferSearchPage {
   }
 
 
-  public openPage(page: string): void {
+  public openPage(page: string): void { 
     this.navCtrl.setRoot(page);
   }
 
@@ -68,6 +68,22 @@ export class OfferSearchPage {
     );
     
 
+  }
+
+  public PreviousPage(): void{
+    if(this.page !== 0){
+      this.page = this.page - 1;
+      this.getoffresBypage(this.OffreAChercher, this.page);
+    }
+    
+  }
+
+  public NextPage(): void{
+    if(this.OffLenght !== 0){
+      this.page = this.page + 1;
+      this.getoffresBypage(this.OffreAChercher, this.page);
+    }
+    
   }
 
   //*********** Function pour alert */
