@@ -1,9 +1,4 @@
-<!--
-  Generated template for the MyPubsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+ 
 <ion-header>
 
   <ion-navbar>
@@ -15,4 +10,25 @@
 
 <ion-content padding>
 
+    <div class="row" *ngIf="OffLenght !== 0">
+        <ion-card class="bg-secondary text-light col-sm-3 col-lg-2" *ngFor="let off of offrs">
+          <img src="off.ProductPicture" />
+          <ion-card-content>
+            <ion-card-title>
+              <h3>{{off.ProductName}}
+                <small>
+                  <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge>
+                </small>
+              </h3>
+            </ion-card-title>
+    
+    
+            <p class="text-light">{{off.ProductDescription}}</p>
+            <h1 (click)="Delete(off.ProductId)" >DELETE</h1>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+
+    
 </ion-content>

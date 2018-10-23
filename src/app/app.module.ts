@@ -28,7 +28,9 @@ import { MenuPage } from '../pages/menu/menu';
 import { UpdateProfileServiceProvider } from '../providers/update-profile-service/update-profile-service';
 import { GetProductsProvider } from '../providers/get-products/get-products';
 import { AddProductProvider } from '../providers/add-product/add-product';
-import { GetProductDetProvider } from '../providers/get-product-det/get-product-det'; 
+import { GetProductDetProvider } from '../providers/get-product-det/get-product-det';
+import { DeleteProductProvider } from '../providers/delete-product/delete-product';
+import { MyPubsProvider } from '../providers/my-pubs/my-pubs'; 
 
 
 
@@ -99,6 +101,8 @@ import { GetProductDetProvider } from '../providers/get-product-det/get-product-
     GetProductsProvider,
     AddProductProvider,
     GetProductDetProvider,
+    DeleteProductProvider,
+    MyPubsProvider,
    
     
   ]

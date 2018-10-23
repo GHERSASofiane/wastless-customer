@@ -5,7 +5,7 @@ import { OfferConsultPage } from '../offer-consult/offer-consult';
 import { User } from '../class/user'; 
 import { GetProductsProvider } from '../../providers/get-products/get-products';
 import { user } from '../test/user';
-import { Offer } from '../class/Offer';
+import { Offer } from '../class/Offer'; 
 
 
 @IonicPage()
@@ -23,7 +23,8 @@ export class OfferSearchPage {
   public page: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public getproductsProv: GetProductsProvider, public alertCtrl: AlertController) {
+              public getproductsProv: GetProductsProvider, public alertCtrl: AlertController
+            ) {
 
     this.userMe = user;
 
@@ -95,4 +96,7 @@ export class OfferSearchPage {
     });
     alert.present();
   }
+
+
+
 }
