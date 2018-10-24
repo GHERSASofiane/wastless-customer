@@ -19,6 +19,7 @@ export class AddOfferPage {
      public alertCtrl: AlertController) {
 
     this.userMe = this.navParams.get('user');
+
     this.product.ProductPicture = 'https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg' ;
     this.product.ProductDate = "2018-10-20";
     this.product.ProductName ="";
@@ -28,25 +29,26 @@ export class AddOfferPage {
   }
 
   public onFileSelected(ev: any): void{
+    // TODO
     // this.product.ProductPicture = ev.target.value;
     // console.log(ev);
   }
   
-  addProduct()
-  { 
+  public addProduct(){ 
+
     this.product.ProductDescription = this.product.ProductDescription.toLowerCase();
     this.product.ProductName = this.product.ProductName.toLowerCase(); 
 
     this.addProdProvid.AddProduct(this.product).subscribe(
       res => {   
-        if(res.status == "ok"){
+        if(res.status == "ok"){ 
           this.showAlert("SUCCESS",res.message);
           this.navCtrl.setRoot(OfferSearchPage);
-        }else {
+        }else { 
           this.showAlert("ERREUR",res.message);
         }
       },
-      err => this.showAlert("ERREUR","Erreur sur le serveur :( :( ")
+      err => this.showAlert("ERREUR","Erreur sur le serveur :( :( ") 
     )
   }
 
