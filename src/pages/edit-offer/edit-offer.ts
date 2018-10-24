@@ -4,6 +4,7 @@ import { Offer } from '../class/Offer';
 import { EditProductProvider } from '../../providers/edit-product/edit-product';
 import { OfferSearchPage } from '../offer-search/offer-search';
 import { User } from '../class/user';
+import { MyPubsPage } from '../my-pubs/my-pubs';
 
 
 @IonicPage()
@@ -44,7 +45,7 @@ export class EditOfferPage {
       res => {
         if (res.status == "ok") {
           this.showAlert("SUCCESS", res.message);
-          this.navCtrl.setRoot(OfferSearchPage, { user: this.userMe });
+          this.navCtrl.setRoot(MyPubsPage, { user: this.userMe });
         } else {
           this.showAlert("ERREUR", res.message);
         }
