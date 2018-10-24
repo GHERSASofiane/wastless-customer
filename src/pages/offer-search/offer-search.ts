@@ -38,7 +38,7 @@ export class OfferSearchPage {
 
   public goToPageOfferConsult(id: number): void {
     // go to the MyPage component
-    this.navCtrl.push(OfferConsultPage, {id: id});
+    this.navCtrl.push(OfferConsultPage, {id: id, user: this.userMe});
   }
 
 

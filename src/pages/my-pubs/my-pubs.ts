@@ -5,7 +5,7 @@ import { Offer } from '../class/Offer';
 import { User } from '../class/user';
 import { MyPubsProvider } from '../../providers/my-pubs/my-pubs';
 import { EditOfferPage } from '../edit-offer/edit-offer';
- 
+
 
 @IonicPage()
 @Component({
@@ -14,52 +14,54 @@ import { EditOfferPage } from '../edit-offer/edit-offer';
 })
 export class MyPubsPage {
 
+  // Variables 
   public offrs: Offer[];
   private userMe: User;
   public OffLenght = 0;
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams
-          , private DeletProv: DeleteProductProvider, private MyPubProv: MyPubsProvider,
-          public alertCtrl: AlertController) {
 
-            this.userMe = navParams.get('user');
-            this.GetProduct();
+  constructor(public navCtrl: NavController, public navParams: NavParams
+    , private DeletProv: DeleteProductProvider, private MyPubProv: MyPubsProvider,
+    public alertCtrl: AlertController) {
+
+    this.userMe = navParams.get('user');
+    this.GetProduct();
   }
 
   ionViewDidLoad() { }
 
-  public GetProduct(){
+  public GetProduct() {
 
     this.MyPubProv.MyPubs(this.userMe.userId).subscribe(
-      res => {   
-        if(res.status == "ok"){
-          this.offrs = res.reponse; 
-          this.OffLenght = this.offrs.length; 
-        }else {
-          this.showAlert("ERREUR",res.message);
+      res => {
+        if (res.status == "ok") {
+          this.offrs = res.reponse;
+          this.OffLenght = this.offrs.length;
+        } else {
+          this.showAlert("ERREUR", res.message);
         }
       },
-      err => this.showAlert("ERREUR","Erreur sur le serveur :( :( ")
+      err => this.showAlert("ERREUR", "Erreur sur le serveur :( :( ")
     )
   }
 
-  public Delete(id: number){
-    
+  public Delete(id: number) {
+
     this.DeletProv.DeleteProduct(id).subscribe(
-      res => {   
-        if(res.status == "ok"){
-          this.showAlert("SUCCESS",res.message);
-        }else {
-          this.showAlert("ERREUR",res.message);
+      res => {
+        if (res.status == "ok") {
+          this.showAlert("SUCCESS", res.message);
+          this.GetProduct();
+        } else {
+          this.showAlert("ERREUR", res.message);
         }
       },
-      err => this.showAlert("ERREUR","Erreur sur le serveur :( :( ")
+      err => this.showAlert("ERREUR", "Erreur sur le serveur :( :( ")
     )
   }
 
-  public Edit(offre: Offer){
-    
-    this.navCtrl.push(EditOfferPage,{offre: offre});
+  public Edit(offre: Offer) {
+
+    this.navCtrl.push(EditOfferPage, { offre: offre, user: this.userMe });
   }
 
 

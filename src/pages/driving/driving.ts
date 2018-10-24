@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../class/user';
  
 
 @IonicPage()
@@ -8,8 +9,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'driving.html',
 })
 export class DrivingPage {
-
+  // Variables
+  public userMe: User;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.userMe = navParams.get('user');
   }
 
   ionViewDidLoad() {

@@ -15,8 +15,7 @@ import { EditOfferPage } from '../pages/edit-offer/edit-offer';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { LoginPage } from '../pages/login/login';
 import { OfferConsultPage } from '../pages/offer-consult/offer-consult';
-import { OfferSearchPage } from '../pages/offer-search/offer-search';
-import { RemoveOfferPage } from '../pages/remove-offer/remove-offer'; 
+import { OfferSearchPage } from '../pages/offer-search/offer-search'; 
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { ValidateProductPage } from '../pages/validate-product/validate-product';  
 import { AuthProvider } from '../providers/auth/auth';
@@ -46,8 +45,7 @@ import { EditProductProvider } from '../providers/edit-product/edit-product';
     EditProfilePage,
     LoginPage,
     OfferConsultPage,
-    OfferSearchPage,
-    RemoveOfferPage, 
+    OfferSearchPage,  
     SignUpPage,
     ValidateProductPage,  
     WeatherPage,
@@ -79,8 +77,7 @@ import { EditProductProvider } from '../providers/edit-product/edit-product';
     EditProfilePage,
     LoginPage,
     OfferConsultPage,
-    OfferSearchPage,
-    RemoveOfferPage, 
+    OfferSearchPage, 
     SignUpPage,
     ValidateProductPage,  
     WeatherPage,
