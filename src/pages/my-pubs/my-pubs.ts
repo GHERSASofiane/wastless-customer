@@ -4,6 +4,7 @@ import { DeleteProductProvider } from '../../providers/delete-product/delete-pro
 import { Offer } from '../class/Offer';
 import { User } from '../class/user';
 import { MyPubsProvider } from '../../providers/my-pubs/my-pubs';
+import { EditOfferPage } from '../edit-offer/edit-offer';
  
 
 @IonicPage()
@@ -22,18 +23,18 @@ export class MyPubsPage {
           public alertCtrl: AlertController) {
 
             this.userMe = navParams.get('user');
+            this.GetProduct();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MyPubsPage');
-  }
+  ionViewDidLoad() { }
 
   public GetProduct(){
+
     this.MyPubProv.MyPubs(this.userMe.userId).subscribe(
       res => {   
         if(res.status == "ok"){
           this.offrs = res.reponse; 
-          this.OffLenght = this.offrs.length;
+          this.OffLenght = this.offrs.length; 
         }else {
           this.showAlert("ERREUR",res.message);
         }
@@ -43,6 +44,7 @@ export class MyPubsPage {
   }
 
   public Delete(id: number){
+    
     this.DeletProv.DeleteProduct(id).subscribe(
       res => {   
         if(res.status == "ok"){
@@ -53,6 +55,11 @@ export class MyPubsPage {
       },
       err => this.showAlert("ERREUR","Erreur sur le serveur :( :( ")
     )
+  }
+
+  public Edit(offre: Offer){
+    
+    this.navCtrl.push(EditOfferPage,{offre: offre});
   }
 
 

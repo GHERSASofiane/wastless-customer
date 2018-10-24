@@ -30,7 +30,8 @@ import { GetProductsProvider } from '../providers/get-products/get-products';
 import { AddProductProvider } from '../providers/add-product/add-product';
 import { GetProductDetProvider } from '../providers/get-product-det/get-product-det';
 import { DeleteProductProvider } from '../providers/delete-product/delete-product';
-import { MyPubsProvider } from '../providers/my-pubs/my-pubs'; 
+import { MyPubsProvider } from '../providers/my-pubs/my-pubs';
+import { EditProductProvider } from '../providers/edit-product/edit-product'; 
 
 
 
@@ -103,6 +104,7 @@ import { MyPubsProvider } from '../providers/my-pubs/my-pubs';
     GetProductDetProvider,
     DeleteProductProvider,
     MyPubsProvider,
+    EditProductProvider,
    
     
   ]
