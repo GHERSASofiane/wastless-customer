@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Offer } from '../class/Offer';
-import { EditProductProvider } from '../../providers/edit-product/edit-product';
-import { OfferSearchPage } from '../offer-search/offer-search';
+import { EditProductProvider } from '../../providers/edit-product/edit-product'; 
 import { User } from '../class/user';
 import { MyPubsPage } from '../my-pubs/my-pubs';
 
@@ -45,7 +44,7 @@ export class EditOfferPage {
       res => {
         if (res.status == "ok") {
           this.showAlert("SUCCESS", res.message);
-          this.navCtrl.setRoot(MyPubsPage, { user: this.userMe });
+          this.navCtrl.push(MyPubsPage, { user: this.userMe });
         } else {
           this.showAlert("ERREUR", res.message);
         }
