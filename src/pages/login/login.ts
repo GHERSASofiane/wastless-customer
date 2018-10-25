@@ -46,6 +46,7 @@ export class LoginPage {
       (
         res => 
               {
+                console.log(res);
                 this.user = res.reponse;
                 this._auth.setUser(this.user);
               

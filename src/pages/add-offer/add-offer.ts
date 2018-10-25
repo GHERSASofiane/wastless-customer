@@ -14,25 +14,34 @@ export class AddOfferPage {
 
   public userMe: User;
   product = new Offer();
+  private selectedFile : File = null;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private addProdProvid: AddProductProvider,
      public alertCtrl: AlertController) {
 
     this.userMe = this.navParams.get('user');
 
-    this.product.ProductPicture = 'https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg' ;
-    this.product.ProductDate = "2018-10-20";
+    this.product.ProductPicture = '' ;
+    this.product.ProductDate = "";
     this.product.ProductName ="";
     this.product.ProductDescription ="";
     this.product.ProductPrice = 0;
     this.product.UserId = this.userMe.userId;
   }
-
-  public onFileSelected(ev: any): void{
-    // TODO
-    // this.product.ProductPicture = ev.target.value;
-    // console.log(ev);
+ 
+  onFileSelected(event)
+  {
+    
+    this.selectedFile = <File> event.target.files[0];
+    var reader = new FileReader();
+    reader.onload =this._handleReaderLoaded.bind(this);
+    reader.readAsBinaryString(this.selectedFile);
   }
+
+  _handleReaderLoaded(readerEvt) {
+    var binaryString = readerEvt.target.result;
+    this.product.ProductPicture = btoa(binaryString);
+   }
   
   public addProduct(){ 
 

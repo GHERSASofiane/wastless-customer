@@ -17,7 +17,7 @@
   <!-- DIV pour l'ensemble des offres  -->
   <div class="row" *ngIf="OffLenght !== 0">
     <ion-card class="bg-secondary text-light col-sm-3 col-lg-2" (click)="goToPageOfferConsult(off.ProductId)" *ngFor="let off of offrs">
-      <img src="https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg" />
+      <img src="data:image/png;base64,{{off.ProductPicture}}" />
       <ion-card-content>
         <ion-card-title>
           <h3>{{off.ProductName}}
