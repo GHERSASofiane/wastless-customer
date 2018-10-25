@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <div style="font-family: Snell Roundhand, cursive; " class="text-info">
+      Chat
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding> 
+
+ <pre *ngIf="Message">
+
+<img src="data:image/png;base64,{{Message.ProductPicture}}" >
+
+ProductName : {{ Message.ProductName }}
+ProductDescription : {{ Message.ProductDescription }}
+ProductPicture : {{ Message.ProductPicture }}
+
+UserId : {{ Message.UserId }}
+ProductPrice : {{ Message.ProductPrice }}
+
+ChatSend : {{ Message.ChatSend }}
+ChatReceive : {{ Message.ChatReceive }}
+ChatProduct : {{ Message.ChatProduct }}
+ChatMessage : {{ Message.ChatMessage }}
+ 
+
+<!-- <input type="text"  [(ngModel)]="Message.ChatMessage" > -->
+<button class="btn-info" ion-button round  >Chat</button>
+
+</pre>
+
+</ion-content>

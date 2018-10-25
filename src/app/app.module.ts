@@ -31,6 +31,8 @@ import { GetProductDetProvider } from '../providers/get-product-det/get-product-
 import { DeleteProductProvider } from '../providers/delete-product/delete-product';
 import { MyPubsProvider } from '../providers/my-pubs/my-pubs';
 import { EditProductProvider } from '../providers/edit-product/edit-product'; 
+import { ChatPage } from '../pages/chat/chat';
+import { ChatProvider } from '../providers/chat/chat';
 
 
 
@@ -49,7 +51,8 @@ import { EditProductProvider } from '../providers/edit-product/edit-product';
     SignUpPage,
     ValidateProductPage,  
     WeatherPage,
-    MenuPage 
+    MenuPage,
+    ChatPage 
     
   ],
   imports: [
@@ -81,7 +84,8 @@ import { EditProductProvider } from '../providers/edit-product/edit-product';
     SignUpPage,
     ValidateProductPage,  
     WeatherPage,
-    MenuPage 
+    MenuPage,
+    ChatPage 
 
   ],
   providers: [
@@ -102,6 +106,7 @@ import { EditProductProvider } from '../providers/edit-product/edit-product';
     DeleteProductProvider,
     MyPubsProvider,
     EditProductProvider,
+    ChatProvider,
    
     
   ]

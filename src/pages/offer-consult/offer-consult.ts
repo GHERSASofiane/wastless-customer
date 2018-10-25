@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { GetProductDetProvider } from '../../providers/get-product-det/get-product-det';
 import { OffreDetails } from '../class/OffreDetails';
 import { User } from '../class/user';
+import { ChatPage } from '../chat/chat';
 
 
 @IonicPage()
@@ -37,6 +38,10 @@ export class OfferConsultPage {
       },
       err => this.showAlert("ERREUR", "Erreur sur le serveur :( :( ")
     )
+  }
+
+  public GoChat(infos: OffreDetails){
+    this.navCtrl.push(ChatPage,{product: infos, user: this.userMe});
   }
 
   //*********** Function pour alert */

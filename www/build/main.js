@@ -1,4 +1,4 @@
-webpackJsonp([17],{
+webpackJsonp([18],{
 
 /***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -7,7 +7,8 @@ webpackJsonp([17],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfferConsultPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_get_product_det_get_product_det__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_get_product_det_get_product_det__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__chat_chat__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17,6 +18,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -42,6 +44,9 @@ var OfferConsultPage = /** @class */ (function () {
             }
         }, function (err) { return _this.showAlert("ERREUR", "Erreur sur le serveur :( :( "); });
     };
+    OfferConsultPage.prototype.GoChat = function (infos) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__chat_chat__["a" /* ChatPage */], { product: infos, user: this.userMe });
+    };
     //*********** Function pour alert */
     OfferConsultPage.prototype.showAlert = function (title, subTitle) {
         var alert = this.alertCtrl.create({
@@ -53,7 +58,7 @@ var OfferConsultPage = /** @class */ (function () {
     };
     OfferConsultPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-offer-consult',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-consult/offer-consult.html"*/'<ion-header>\n\n  <ion-navbar>\n    <div style="font-family: Snell Roundhand, cursive; " class="text-info">\n      Offer Consult\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <pre *ngIf="infos">\n\n<img src={{infos.ProductPicture}}  >\n\nProductName  {{infos.ProductName }}\nProductDate  {{infos.ProductDate}}\nProductDescription  {{infos.ProductDescription}}\nProductPicture  {{infos.ProductPicture}}\nUserMail  {{infos.UserMail}}\nUserAdress  {{infos.UserAdress}}\n\nProductId  {{infos.ProductId}}\nProductPrice  {{infos.ProductPrice}}\nProductStatus  {{infos.ProductStatus}}\nUserId  {{infos.UserId}}\nUserPhone  {{infos.UserPhone}}\n\n</pre>\n</ion-content>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-consult/offer-consult.html"*/,
+            selector: 'page-offer-consult',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-consult/offer-consult.html"*/'<ion-header>\n\n  <ion-navbar>\n    <div style="font-family: Snell Roundhand, cursive; " class="text-info">\n      Offer Consult\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <pre *ngIf="infos">\n\n<img src="data:image/png;base64,{{infos.ProductPicture}}" >\n\nProductName  {{infos.ProductName }}\nProductDate  {{infos.ProductDate}}\nProductDescription  {{infos.ProductDescription}}\nProductPicture  {{infos.ProductPicture}}\nUserMail  {{infos.UserMail}}\nUserAdress  {{infos.UserAdress}}\n\nProductId  {{infos.ProductId}}\nProductPrice  {{infos.ProductPrice}}\nProductStatus  {{infos.ProductStatus}}\nUserId  {{infos.UserId}}\nUserPhone  {{infos.UserPhone}}\n\n\n<button class="btn-info" ion-button round (click)="GoChat(infos)">Chat</button>\n\n</pre>\n</ion-content>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-consult/offer-consult.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_get_product_det_get_product_det__["a" /* GetProductDetProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -69,12 +74,108 @@ var OfferConsultPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chat_chat__ = __webpack_require__(169);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ChatPage = /** @class */ (function () {
+    function ChatPage(navCtrl, navParams, ChatProvd, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ChatProvd = ChatProvd;
+        this.alertCtrl = alertCtrl;
+        this.product = navParams.get('product');
+        this.userMe = navParams.get('user');
+        console.log(this.userMe);
+        // this.Message.ChatSend = this.userMe.userId;
+        // this.Message.ChatReceive = this.product.UserId;
+        // this.Message.ProductName = this.product.ProductName;
+        // this.Message.ProductDescription = this.product.ProductDescription;
+        // this.Message.ProductPicture = this.product.ProductPicture;
+        // this.Message.ProductPrice = this.product.ProductPrice;
+        // this.Message.ChatProduct = this.product.ProductId;
+        // this.Message.ChatMessage = '';
+        this.GetMessages(this.product.ProductId);
+    }
+    ChatPage.prototype.ionViewDidLoad = function () { };
+    ChatPage.prototype.Confirme = function () {
+        var _this = this;
+        this.ChatProvd.Confirme(this.Message).subscribe(function (res) {
+            if (res.status == "ok") {
+                _this.showAlert("SUCCESS", res.message);
+            }
+            else {
+                _this.showAlert("ERREUR", res.message);
+            }
+        }, function (err) { return _this.showAlert("ERREUR", "Erreur sur le serveur :( :( "); });
+    };
+    ChatPage.prototype.AddMessage = function () {
+        var _this = this;
+        this.ChatProvd.AddMessage(this.Message).subscribe(function (res) {
+            if (res.status == "ok") {
+                _this.showAlert("SUCCESS", res.message);
+            }
+            else {
+                _this.showAlert("ERREUR", res.message);
+            }
+        }, function (err) { return _this.showAlert("ERREUR", "Erreur sur le serveur :( :( "); });
+    };
+    ChatPage.prototype.GetMessages = function (id) {
+        var _this = this;
+        this.ChatProvd.GetMessages(id).subscribe(function (res) {
+            if (res.status == "ok") {
+                _this.Messages = res.reponse;
+            }
+            else {
+                _this.showAlert("ERREUR", res.message);
+            }
+        }, function (err) { return _this.showAlert("ERREUR", "Erreur sur le serveur :( :( "); });
+    };
+    //*********** Function pour alert */
+    ChatPage.prototype.showAlert = function (title, subTitle) {
+        var alert = this.alertCtrl.create({
+            title: title,
+            subTitle: subTitle,
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    ChatPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-chat',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/chat/chat.html"*/'<ion-header>\n\n  <ion-navbar>\n    <div style="font-family: Snell Roundhand, cursive; " class="text-info">\n      Chat\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding> \n\n <pre *ngIf="Message">\n\n<img src="data:image/png;base64,{{Message.ProductPicture}}" >\n\nProductName : {{ Message.ProductName }}\nProductDescription : {{ Message.ProductDescription }}\nProductPicture : {{ Message.ProductPicture }}\n\nUserId : {{ Message.UserId }}\nProductPrice : {{ Message.ProductPrice }}\n\nChatSend : {{ Message.ChatSend }}\nChatReceive : {{ Message.ChatReceive }}\nChatProduct : {{ Message.ChatProduct }}\nChatMessage : {{ Message.ChatMessage }}\n \n\n<!-- <input type="text"  [(ngModel)]="Message.ChatMessage" > -->\n<button class="btn-info" ion-button round  >Chat</button>\n\n</pre>\n\n</ion-content>\n'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/chat/chat.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_chat_chat__["a" /* ChatProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_chat_chat__["a" /* ChatProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], ChatPage);
+    return ChatPage;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=chat.js.map
+
+/***/ }),
+
+/***/ 109:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditOfferPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_Offer__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_edit_product_edit_product__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_pubs_my_pubs__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_Offer__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_edit_product_edit_product__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_pubs_my_pubs__ = __webpack_require__(223);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -130,7 +231,7 @@ var EditOfferPage = /** @class */ (function () {
     };
     EditOfferPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-offer',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/edit-offer/edit-offer.html"*/'<ion-header>\n\n  <ion-navbar>\n    <div style="font-family: Snell Roundhand, cursive; " class="text-info">\n      Edit Offer\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n\n  <!-- Login form -->\n  <form class="list-form  bg-dark">\n\n    <ion-item>\n      <img src={{offre.ProductPicture}} class="Thumbnail mx-auto d-block img-fluid" />\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>\n        Product Name\n      </ion-label>\n      <ion-input type="text" [(ngModel)]="offre.ProductName" [ngModelOptions]="{standalone: true}"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>\n        Product Description\n      </ion-label>\n      <ion-textarea type="text" [(ngModel)]="offre.ProductDescription" [ngModelOptions]="{standalone: true}" rows="5"></ion-textarea>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>\n        Product Price\n      </ion-label>\n      <ion-input type="number" [(ngModel)]="offre.ProductPrice" [ngModelOptions]="{standalone: true}"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>\n        Product Picture\n      </ion-label>\n      <ion-input type="file" (change)="onFileSelected($event)" accept="image/*"></ion-input>\n    </ion-item>\n\n  </form>\n\n\n  <div>\n    <button ion-button icon-start block class="bg-info" tappable (click)="EditProduct()">\n      <ion-icon name="md-checkmark-circle"></ion-icon>\n      Register\n    </button>\n\n  </div>\n\n\n</ion-content>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/edit-offer/edit-offer.html"*/,
+            selector: 'page-edit-offer',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/edit-offer/edit-offer.html"*/'<ion-header>\n\n  <ion-navbar>\n    <div style="font-family: Snell Roundhand, cursive; " class="text-info">\n      Edit Offer\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n\n  <!-- Login form -->\n  <form class="list-form  bg-dark">\n\n    <ion-item>  \n      <img src="data:image/png;base64,{{offre.ProductPicture}}" class="Thumbnail mx-auto d-block img-fluid" />\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>\n        Product Name\n      </ion-label>\n      <ion-input type="text" [(ngModel)]="offre.ProductName" [ngModelOptions]="{standalone: true}"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>\n        Product Description\n      </ion-label>\n      <ion-textarea type="text" [(ngModel)]="offre.ProductDescription" [ngModelOptions]="{standalone: true}" rows="5"></ion-textarea>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>\n        Product Price\n      </ion-label>\n      <ion-input type="number" [(ngModel)]="offre.ProductPrice" [ngModelOptions]="{standalone: true}"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>\n        Product Picture\n      </ion-label>\n      <ion-input type="file" (change)="onFileSelected($event)" accept="image/*"></ion-input>\n    </ion-item>\n\n  </form>\n\n\n  <div>\n    <button ion-button icon-start block class="bg-info" tappable (click)="EditProduct()">\n      <ion-icon name="md-checkmark-circle"></ion-icon>\n      Register\n    </button>\n\n  </div>\n\n\n</ion-content>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/edit-offer/edit-offer.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__providers_edit_product_edit_product__["a" /* EditProductProvider */]])
@@ -142,14 +243,14 @@ var EditOfferPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 109:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_update_profile_service_update_profile_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_update_profile_service_update_profile_service__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__class_user__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_home_user_home__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth__ = __webpack_require__(30);
@@ -217,7 +318,7 @@ var EditProfilePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -226,9 +327,9 @@ var EditProfilePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_user__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sign_up_sign_up__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__menu_menu__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__menu_menu__ = __webpack_require__(112);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -282,17 +383,16 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/login/login.html"*/'<!-- -->\n<ion-content padding class="animated fadeIn login auth-page"> \n  <div class="login-content">\n  \n      <!-- Logo -->\n      <div padding-horizontal text-center class="animated fadeInDown">\n        <div class="logo"></div>\n        <h2 ion-text class="text-primary">\n          <strong>Wastless</strong>\n          <p> Economisons notre argent </p>\n        </h2>\n      </div>\n  \n      <!-- Login form -->\n      <form class="list-form">\n        <ion-item>\n          <ion-label floating>\n            <ion-icon name="mail" item-start class="text-primary"></ion-icon>\n            Email\n          </ion-label>\n          <ion-input type="email" [(ngModel)]="user.userMail" name="userMail"></ion-input>\n        </ion-item>\n  \n        <ion-item>\n          <ion-label floating>\n            <ion-icon name="lock" item-start class="text-primary"></ion-icon>\n            Password\n          </ion-label>\n          <ion-input type="password" [(ngModel)]="user.userPassword" name="userPassword">\n          </ion-input>\n        </ion-item>\n      </form>\n  \n      \n      <div>\n        <button ion-button icon-start block color="dark" tappable (click)="logIn()">\n          <ion-icon name="log-in"></ion-icon>\n          SIGN IN\n          <ion-spinner id="spinner" name="circles" *ngIf="done == false"></ion-spinner> \n        </button>\n      </div>\n  \n  \n      <!-- Other links -->\n      <div text-center margin-top>\n        <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>\n      </div>\n  \n    </div>\n  </ion-content>\n  \n\n\n\n<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!--\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<div id="container">\n  <ion-item>\n    <ion-label stacked>Email</ion-label>\n    <ion-input type="email" [(ngModel)]="user.userMail" ></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label stacked>Password : </ion-label>\n    <ion-input type="password" [(ngModel)]="user.userPassword"></ion-input>\n  </ion-item>\n  \n  <button ion-button (tap)="logIn()" id="login"> Log In </button>\n\n</div>\n</ion-content>\n-->'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
     ], LoginPage);
     return LoginPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=login.js.map
 
 /***/ }),
 
-/***/ 111:
+/***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -301,8 +401,8 @@ var LoginPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_home_user_home__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_offer_add_offer__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_profile_edit_profile__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_offer_add_offer__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_profile_edit_profile__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -365,7 +465,7 @@ var MenuPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 122:
+/***/ 123:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -378,80 +478,84 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 122;
+webpackEmptyAsyncContext.id = 123;
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/add-offer/add-offer.module": [
-		308,
-		16
+		310,
+		17
 	],
 	"../pages/book-product/book-product.module": [
-		309,
-		15
+		311,
+		16
 	],
 	"../pages/cancel-reservation/cancel-reservation.module": [
-		310,
+		312,
+		15
+	],
+	"../pages/chat/chat.module": [
+		313,
 		14
 	],
 	"../pages/driving/driving.module": [
-		311,
+		314,
 		2
 	],
 	"../pages/edit-offer/edit-offer.module": [
-		312,
+		315,
 		13
 	],
 	"../pages/edit-profile/edit-profile.module": [
-		313,
+		316,
 		12
 	],
 	"../pages/login/login.module": [
-		314,
+		318,
 		11
 	],
 	"../pages/menu/menu.module": [
-		315,
+		317,
 		10
 	],
 	"../pages/my-pubs/my-pubs.module": [
-		316,
+		319,
 		9
 	],
 	"../pages/offer-consult/offer-consult.module": [
-		317,
+		320,
 		8
 	],
 	"../pages/offer-search/offer-search.module": [
-		318,
+		321,
 		7
 	],
 	"../pages/sign-out/sign-out.module": [
-		319,
+		322,
 		1
 	],
 	"../pages/sign-up/sign-up.module": [
-		320,
+		323,
 		6
 	],
 	"../pages/user-home/user-home.module": [
-		321,
+		324,
 		5
 	],
 	"../pages/validate-product/validate-product.module": [
-		322,
+		325,
 		4
 	],
 	"../pages/view-history/view-history.module": [
-		323,
+		326,
 		0
 	],
 	"../pages/weather/weather.module": [
-		324,
+		327,
 		3
 	]
 };
@@ -466,12 +570,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 164;
+webpackAsyncContext.id = 165;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 165:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -486,12 +590,12 @@ var Offer = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddProductProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -524,12 +628,12 @@ var AddProductProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetProductDetProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -562,12 +666,57 @@ var GetProductDetProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 168:
+/***/ 169:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ChatProvider = /** @class */ (function () {
+    function ChatProvider(http) {
+        this.http = http;
+        this.lien = "https://wastless.herokuapp.com/Chat";
+        this.lienConfirme = "https://wastless.herokuapp.com/ChatConfirme";
+        console.log('Hello ChatProvider Provider');
+    }
+    ChatProvider.prototype.GetMessages = function (id) {
+        return this.http.get(this.lien + "ProductId" + id);
+    };
+    ChatProvider.prototype.AddMessage = function (Message) {
+        return this.http.post(this.lien, { Chat: Message });
+    };
+    ChatProvider.prototype.Confirme = function (Message) {
+        return this.http.post(this.lienConfirme, { Chat: Message });
+    };
+    ChatProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["b" /* HttpClient */]])
+    ], ChatProvider);
+    return ChatProvider;
+}());
+
+//# sourceMappingURL=chat.js.map
+
+/***/ }),
+
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetProductsProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -600,12 +749,12 @@ var GetProductsProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProductProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -637,12 +786,12 @@ var EditProductProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeleteProductProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -675,12 +824,12 @@ var DeleteProductProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 171:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyPubsProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -713,12 +862,12 @@ var MyPubsProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 172:
+/***/ 174:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateProfileServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -757,12 +906,12 @@ var UpdateProfileServiceProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 173:
+/***/ 175:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserHomeServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -800,15 +949,15 @@ var UserHomeServiceProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 218:
+/***/ 220:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddOfferPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_Offer__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_add_product_add_product__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_Offer__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_add_product_add_product__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__offer_search_offer_search__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -831,18 +980,24 @@ var AddOfferPage = /** @class */ (function () {
         this.addProdProvid = addProdProvid;
         this.alertCtrl = alertCtrl;
         this.product = new __WEBPACK_IMPORTED_MODULE_2__class_Offer__["a" /* Offer */]();
+        this.selectedFile = null;
         this.userMe = this.navParams.get('user');
-        this.product.ProductPicture = 'https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg';
-        this.product.ProductDate = "2018-10-20";
+        this.product.ProductPicture = '';
+        this.product.ProductDate = "";
         this.product.ProductName = "";
         this.product.ProductDescription = "";
         this.product.ProductPrice = 0;
         this.product.UserId = this.userMe.userId;
     }
-    AddOfferPage.prototype.onFileSelected = function (ev) {
-        // TODO
-        // this.product.ProductPicture = ev.target.value;
-        // console.log(ev);
+    AddOfferPage.prototype.onFileSelected = function (event) {
+        this.selectedFile = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = this._handleReaderLoaded.bind(this);
+        reader.readAsBinaryString(this.selectedFile);
+    };
+    AddOfferPage.prototype._handleReaderLoaded = function (readerEvt) {
+        var binaryString = readerEvt.target.result;
+        this.product.ProductPicture = btoa(binaryString);
     };
     AddOfferPage.prototype.addProduct = function () {
         var _this = this;
@@ -881,7 +1036,7 @@ var AddOfferPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 219:
+/***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -926,7 +1081,7 @@ var BookProductPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 220:
+/***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -971,16 +1126,16 @@ var CancelReservationPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 221:
+/***/ 223:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyPubsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_delete_product_delete_product__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_my_pubs_my_pubs__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_offer_edit_offer__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_delete_product_delete_product__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_my_pubs_my_pubs__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_offer_edit_offer__ = __webpack_require__(109);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1045,7 +1200,7 @@ var MyPubsPage = /** @class */ (function () {
     };
     MyPubsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-my-pubs',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/my-pubs/my-pubs.html"*/'<ion-header>\n\n  <ion-navbar>\n    <div style="font-family: Snell Roundhand, cursive; " class="text-info">\n      My publications\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <div class="row" *ngIf="OffLenght !== 0">\n    <ion-card class="bg-secondary text-light col-sm-3 col-lg-2" *ngFor="let off of offrs">\n      <img src={{off.ProductPicture}} />\n      <ion-card-content>\n        <ion-card-title>\n          <h3>{{off.ProductName}}\n            <small>\n              <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge>\n            </small>\n          </h3>\n        </ion-card-title>\n\n        <p class="text-light">{{off.ProductDescription}}</p>\n        <button class="btn-info" ion-button round (click)="Delete(off.ProductId)">DELETE</button>\n        <button class="btn-info" ion-button round (click)="Edit(off)">EDIT</button>\n\n      </ion-card-content>\n    </ion-card>\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/my-pubs/my-pubs.html"*/,
+            selector: 'page-my-pubs',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/my-pubs/my-pubs.html"*/'<ion-header>\n\n  <ion-navbar>\n    <div style="font-family: Snell Roundhand, cursive; " class="text-info">\n      My publications\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <div class="row" *ngIf="OffLenght !== 0">\n    <ion-card class="bg-secondary text-light col-sm-3 col-lg-2" *ngFor="let off of offrs">\n      <img src="data:image/png;base64,{{off.ProductPicture}}" />\n      <ion-card-content>\n        <ion-card-title>\n          <h3>{{off.ProductName}}\n            <small>\n              <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge>\n            </small>\n          </h3>\n        </ion-card-title>\n\n        <p class="text-light">{{off.ProductDescription}}</p>\n        <button class="btn-info" ion-button round (click)="Delete(off.ProductId)">DELETE</button>\n        <button class="btn-info" ion-button round (click)="Edit(off)">EDIT</button>\n\n      </ion-card-content>\n    </ion-card>\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/my-pubs/my-pubs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_delete_product_delete_product__["a" /* DeleteProductProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_my_pubs_my_pubs__["a" /* MyPubsProvider */],
@@ -1058,7 +1213,7 @@ var MyPubsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 222:
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1103,7 +1258,7 @@ var ValidateProductPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 223:
+/***/ 225:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1144,15 +1299,15 @@ var WeatherPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 224:
+/***/ 226:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_do__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_do__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_do__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(250);
 
 
 
@@ -1161,47 +1316,51 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 248:
+/***/ 250:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_book_product_book_product__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_cancel_reservation_cancel_reservation__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_edit_offer_edit_offer__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_edit_profile_edit_profile__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_login_login__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_book_product_book_product__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_cancel_reservation_cancel_reservation__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_edit_offer_edit_offer__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_edit_profile_edit_profile__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_login_login__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_offer_consult_offer_consult__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_offer_search_offer_search__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_sign_up_sign_up__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_validate_product_validate_product__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_validate_product_validate_product__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_auth_auth__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_token_interceptor_token_interceptor__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_storage__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_weather_weather__ = __webpack_require__(223);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_user_home_service_user_home_service__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_menu_menu__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_update_profile_service_update_profile_service__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_get_products_get_products__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_add_product_add_product__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_get_product_det_get_product_det__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_delete_product_delete_product__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_my_pubs_my_pubs__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_edit_product_edit_product__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_token_interceptor_token_interceptor__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_storage__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_weather_weather__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_user_home_service_user_home_service__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_menu_menu__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_update_profile_service_update_profile_service__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_get_products_get_products__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_add_product_add_product__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_get_product_det_get_product_det__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_delete_product_delete_product__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_my_pubs_my_pubs__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_edit_product_edit_product__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_chat_chat__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_chat_chat__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -1250,7 +1409,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_sign_up_sign_up__["a" /* SignUpPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_validate_product_validate_product__["a" /* ValidateProductPage */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_weather_weather__["a" /* WeatherPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_menu_menu__["a" /* MenuPage */]
+                __WEBPACK_IMPORTED_MODULE_22__pages_menu_menu__["a" /* MenuPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_chat_chat__["a" /* ChatPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1259,11 +1419,12 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/add-offer/add-offer.module#AddOfferPageModule', name: 'AddOfferPage', segment: 'add-offer', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/book-product/book-product.module#BookProductPageModule', name: 'BookProductPage', segment: 'book-product', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cancel-reservation/cancel-reservation.module#CancelReservationPageModule', name: 'CancelReservationPage', segment: 'cancel-reservation', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/driving/driving.module#DrivingPageModule', name: 'DrivingPage', segment: 'driving', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-offer/edit-offer.module#EditOfferPageModule', name: 'EditOfferPage', segment: 'edit-offer', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/my-pubs/my-pubs.module#MyPubsPageModule', name: 'MyPubsPage', segment: 'my-pubs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/offer-consult/offer-consult.module#OfferConsultPageModule', name: 'OfferConsultPage', segment: 'offer-consult', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/offer-search/offer-search.module#OfferSearchPageModule', name: 'OfferSearchPage', segment: 'offer-search', priority: 'low', defaultHistory: [] },
@@ -1292,7 +1453,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_sign_up_sign_up__["a" /* SignUpPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_validate_product_validate_product__["a" /* ValidateProductPage */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_weather_weather__["a" /* WeatherPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_menu_menu__["a" /* MenuPage */]
+                __WEBPACK_IMPORTED_MODULE_22__pages_menu_menu__["a" /* MenuPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_chat_chat__["a" /* ChatPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
@@ -1312,6 +1474,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_27__providers_delete_product_delete_product__["a" /* DeleteProductProvider */],
                 __WEBPACK_IMPORTED_MODULE_28__providers_my_pubs_my_pubs__["a" /* MyPubsProvider */],
                 __WEBPACK_IMPORTED_MODULE_29__providers_edit_product_edit_product__["a" /* EditProductProvider */],
+                __WEBPACK_IMPORTED_MODULE_31__providers_chat_chat__["a" /* ChatProvider */],
             ]
         })
     ], AppModule);
@@ -1322,7 +1485,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 278:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1334,7 +1497,7 @@ var user = new __WEBPACK_IMPORTED_MODULE_0__class_user__["a" /* User */]("m.gher
 
 /***/ }),
 
-/***/ 279:
+/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1359,7 +1522,7 @@ var Reponse = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_class_user__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1406,25 +1569,24 @@ var AuthProvider = /** @class */ (function () {
     };
     AuthProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
     ], AuthProvider);
     return AuthProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=auth.js.map
 
 /***/ }),
 
-/***/ 304:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(215);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1462,7 +1624,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 305:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1544,7 +1706,7 @@ var User = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sign_up_sign_up__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__offer_search_offer_search__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1595,8 +1757,8 @@ var HomePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__offer_consult_offer_consult__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_get_products_get_products__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__test_user__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_get_products_get_products__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__test_user__ = __webpack_require__(280);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1673,7 +1835,7 @@ var OfferSearchPage = /** @class */ (function () {
     };
     OfferSearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-offer-search',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-search/offer-search.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n      <ion-icon name="menu" menuToggle></ion-icon>\n    </button>\n    <ion-title>\n      <ion-searchbar (keyup.enter)="getOffres($event)"> </ion-searchbar>\n    </ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding class="bg-dark">\n\n  <!-- DIV pour l\'ensemble des offres  -->\n  <div class="row" *ngIf="OffLenght !== 0">\n    <ion-card class="bg-secondary text-light col-sm-3 col-lg-2" (click)="goToPageOfferConsult(off.ProductId)" *ngFor="let off of offrs">\n      <img src="https://www.tuxboard.com/photos/2016/10/plus-belles-filles-internet-12.jpg" />\n      <ion-card-content>\n        <ion-card-title>\n          <h3>{{off.ProductName}}\n            <small>\n              <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge>\n            </small>\n          </h3>\n        </ion-card-title>\n\n\n        <p class="text-light">{{off.ProductDescription}}</p>\n\n      </ion-card-content>\n    </ion-card>\n  </div>\n\n  <!-- DIV en cas que aucune offre n\'est trouver -->\n  <div *ngIf="OffLenght === 0">\n    <h1>AUCUNE OFFRE</h1>\n  </div>\n\n  <!-- DIV gestion des pages  -->\n  <br>\n  <div>\n    <ul class="pagination justify-content-center ">\n      <li class="page-item" [class.disabled]="page === 0 " (click)="PreviousPage()">\n        <a class="page-link bg-secondary text-light" [class.bg-danger]="page === 0 ">\n          <ion-icon name="ios-arrow-back"></ion-icon> Previous\n        </a>\n      </li>\n\n      <li class="page-item active"><a class="page-link bg-info text-light">Current page{{page}}</a></li>\n\n      <li class="page-item" [class.disabled]="OffLenght === 0 " (click)="NextPage()">\n        <a class="page-link  bg-secondary text-light" [class.bg-danger]="OffLenght === 0 ">\n          Next <ion-icon name="ios-arrow-forward"></ion-icon>\n        </a>\n      </li>\n    </ul>\n  </div>\n\n</ion-content>\n\n<!-- ************************* Menu -->\n<ion-menu type="overlay" side="left" [content]="mycontent">\n\n  <ion-header>\n    <ion-toolbar (click)="openPage(\'UserHomePage\')">\n      <ion-title>\n\n        <p style="color: #00ccff; font-family: Snell Roundhand, cursive; ">\n\n          <img src="{{userMe.userPicture}}" width="10%" height="10%" class="rounded-circle mr-4 ">\n          {{userMe.userName}}\n\n        </p>\n\n      </ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n\n      <button ion-item (click)="openPage(\'OfferSearchPage\')">\n        <p>\n          <ion-icon name="md-search" class="mr-5"></ion-icon> Search\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'AddOfferPage\')">\n        <p>\n          <ion-icon name="md-add" class="mr-5"></ion-icon> Add\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'MyPubsPage\')">\n        <p>\n          <ion-icon name="md-albums" class="mr-5"></ion-icon> My publications\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'DrivingPage\')">\n        <p>\n          <ion-icon name="md-basket" class="mr-5"></ion-icon> Driving\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'ViewHistoryPage\')">\n        <p>\n          <ion-icon name="ios-archive" class="mr-5"></ion-icon> History\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'SignOutPage\')">\n        <p>\n          <ion-icon name="md-log-out" class="mr-5"></ion-icon> Sign Out\n        </p>\n      </button>\n\n    </ion-list>\n  </ion-content>\n</ion-menu>\n<ion-nav #mycontent [root]="rootPage"></ion-nav>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-search/offer-search.html"*/,
+            selector: 'page-offer-search',template:/*ion-inline-start:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-search/offer-search.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n      <ion-icon name="menu" menuToggle></ion-icon>\n    </button>\n    <ion-title>\n      <ion-searchbar (keyup.enter)="getOffres($event)"> </ion-searchbar>\n    </ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding class="bg-dark">\n\n  <!-- DIV pour l\'ensemble des offres  -->\n  <div class="row" *ngIf="OffLenght !== 0">\n    <ion-card class="bg-secondary text-light col-sm-3 col-lg-2" (click)="goToPageOfferConsult(off.ProductId)" *ngFor="let off of offrs">\n      <img src="data:image/png;base64,{{off.ProductPicture}}" />\n      <ion-card-content>\n        <ion-card-title>\n          <h3>{{off.ProductName}}\n            <small>\n              <ion-badge item-end class="btn-info">{{off.ProductPrice}} EUR</ion-badge>\n            </small>\n          </h3>\n        </ion-card-title>\n\n\n        <p class="text-light">{{off.ProductDescription}}</p>\n\n      </ion-card-content>\n    </ion-card>\n  </div>\n\n  <!-- DIV en cas que aucune offre n\'est trouver -->\n  <div *ngIf="OffLenght === 0">\n    <h1>AUCUNE OFFRE</h1>\n  </div>\n\n  <!-- DIV gestion des pages  -->\n  <br>\n  <div>\n    <ul class="pagination justify-content-center ">\n      <li class="page-item" [class.disabled]="page === 0 " (click)="PreviousPage()">\n        <a class="page-link bg-secondary text-light" [class.bg-danger]="page === 0 ">\n          <ion-icon name="ios-arrow-back"></ion-icon> Previous\n        </a>\n      </li>\n\n      <li class="page-item active"><a class="page-link bg-info text-light">Current page{{page}}</a></li>\n\n      <li class="page-item" [class.disabled]="OffLenght === 0 " (click)="NextPage()">\n        <a class="page-link  bg-secondary text-light" [class.bg-danger]="OffLenght === 0 ">\n          Next <ion-icon name="ios-arrow-forward"></ion-icon>\n        </a>\n      </li>\n    </ul>\n  </div>\n\n</ion-content>\n\n<!-- ************************* Menu -->\n<ion-menu type="overlay" side="left" [content]="mycontent">\n\n  <ion-header>\n    <ion-toolbar (click)="openPage(\'UserHomePage\')">\n      <ion-title>\n\n        <p style="color: #00ccff; font-family: Snell Roundhand, cursive; ">\n\n          <img src="{{userMe.userPicture}}" width="10%" height="10%" class="rounded-circle mr-4 ">\n          {{userMe.userName}}\n\n        </p>\n\n      </ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n\n      <button ion-item (click)="openPage(\'OfferSearchPage\')">\n        <p>\n          <ion-icon name="md-search" class="mr-5"></ion-icon> Search\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'AddOfferPage\')">\n        <p>\n          <ion-icon name="md-add" class="mr-5"></ion-icon> Add\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'MyPubsPage\')">\n        <p>\n          <ion-icon name="md-albums" class="mr-5"></ion-icon> My publications\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'DrivingPage\')">\n        <p>\n          <ion-icon name="md-basket" class="mr-5"></ion-icon> Driving\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'ViewHistoryPage\')">\n        <p>\n          <ion-icon name="ios-archive" class="mr-5"></ion-icon> History\n        </p>\n      </button>\n\n      <button ion-item (click)="openPage(\'SignOutPage\')">\n        <p>\n          <ion-icon name="md-log-out" class="mr-5"></ion-icon> Sign Out\n        </p>\n      </button>\n\n    </ion-list>\n  </ion-content>\n</ion-menu>\n<ion-nav #mycontent [root]="rootPage"></ion-nav>'/*ion-inline-end:"/media/ghersa/FilleUbuntu/M2/DAR/Workspace/wastless-customer/src/pages/offer-search/offer-search.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers_get_products_get_products__["a" /* GetProductsProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -1694,9 +1856,9 @@ var OfferSearchPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_user__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_home_service_user_home_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_home_service_user_home_service__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__class_reponse__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__class_reponse__ = __webpack_require__(281);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1859,5 +2021,5 @@ var SignUpPage = /** @class */ (function () {
 
 /***/ })
 
-},[224]);
+},[226]);
 //# sourceMappingURL=main.js.map
