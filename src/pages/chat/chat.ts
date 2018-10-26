@@ -34,6 +34,8 @@ console.log(this.userMe);
     // this.Message.ChatProduct = this.product.ProductId;
     // this.Message.ChatMessage = '';
 
+    
+
     this.GetMessages(this.product.ProductId);
   }
 
