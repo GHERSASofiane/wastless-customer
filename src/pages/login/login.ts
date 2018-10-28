@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { SignUpPage } from '../sign-up/sign-up';
 import { MenuPage } from '../menu/menu';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 
@@ -30,11 +31,14 @@ export class LoginPage {
   user :  User;
   reponse : Reponse;
   done = true;
-  
+  myForm: FormGroup;
 
   constructor(private _auth: AuthProvider, public http: HttpClient, public navCtrl: NavController) {
     this.user = new User("","");
-    
+    this.myForm = new FormGroup({
+      userMail: new FormControl('', [Validators.required, Validators.pattern(".+\@.+\..")]),
+      userPassword: new FormControl('', [Validators.required, Validators.minLength(3)])
+    });
   }
 
 
@@ -46,10 +50,8 @@ export class LoginPage {
       (
         res => 
               {
-                console.log(res);
                 this.user = res.reponse;
                 this._auth.setUser(this.user);
-              
                 localStorage.setItem('token', res.token);
 
               },

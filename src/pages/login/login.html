@@ -12,13 +12,23 @@
       </div>
   
       <!-- Login form -->
-      <form class="list-form">
+      <form class="list-form" [formGroup]="myForm">
+   
         <ion-item>
           <ion-label floating>
             <ion-icon name="mail" item-start class="text-primary"></ion-icon>
             Email
           </ion-label>
-          <ion-input type="email" [(ngModel)]="user.userMail" name="userMail"></ion-input>
+          <ion-input required type="email" [(ngModel)]="user.userMail" name="userMail" formControlName="userMail"></ion-input> 
+          
+        </ion-item>
+        <ion-item no-lines *ngIf="(myForm.get('userMail').hasError('required') || myForm.get('userMail').hasError('pattern')) && myForm.get('userMail').touched">
+            <div class="alert alert-danger" role="alert" *ngIf="myForm.get('userMail').hasError('pattern') && myForm.get('userMail').touched">
+                email de forme : abc@abc.abc
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="myForm.get('userMail').hasError('required') && myForm.get('userMail').touched">
+                vous devez saisir un email
+            </div>
         </ion-item>
   
         <ion-item>
@@ -26,19 +36,29 @@
             <ion-icon name="lock" item-start class="text-primary"></ion-icon>
             Password
           </ion-label>
-          <ion-input type="password" [(ngModel)]="user.userPassword" name="userPassword">
+          <ion-input required type="password" [(ngModel)]="user.userPassword" name="userPassword" formControlName="userPassword">
           </ion-input>
         </ion-item>
-      </form>
+        <ion-item no-lines *ngIf="(myForm.get('userPassword').hasError('required') || myForm.get('userPassword').hasError('minlength')) && myForm.get('userPassword').touched">
+            <div class="alert alert-danger" role="alert" *ngIf="myForm.get('userPassword').hasError('minlength') && myForm.get('userPassword').touched">
+              votre mot de passe doit contenir au moins 6 caracteres
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="myForm.get('userPassword').hasError('required') && myForm.get('userPassword').touched">
+                vous devez saisir un mot de passe
+            </div>
+        </ion-item>
+     
+      
   
       
       <div>
-        <button ion-button icon-start block color="dark" tappable (click)="logIn()">
+        <button ion-button icon-start tappable (click)="logIn()" block [disabled]="!myForm.controls.userMail.valid">
           <ion-icon name="log-in"></ion-icon>
           SIGN IN
           <ion-spinner id="spinner" name="circles" *ngIf="done == false"></ion-spinner> 
         </button>
       </div>
+    </form>
   
   
       <!-- Other links -->
@@ -48,40 +68,3 @@
   
     </div>
   </ion-content>
-  
-
-
-
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!--
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-<div id="container">
-  <ion-item>
-    <ion-label stacked>Email</ion-label>
-    <ion-input type="email" [(ngModel)]="user.userMail" ></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label stacked>Password : </ion-label>
-    <ion-input type="password" [(ngModel)]="user.userPassword"></ion-input>
-  </ion-item>
-  
-  <button ion-button (tap)="logIn()" id="login"> Log In </button>
-
-</div>
-</ion-content>
--->

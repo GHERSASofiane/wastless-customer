@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../class/user';
 import { UserHomePage } from '../user-home/user-home';
 import { AuthProvider } from '../../providers/auth/auth';
+import { HttpClient } from '@angular/common/http';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 
 /**
  * Generated class for the SignUpPage page.
@@ -20,9 +22,15 @@ export class SignUpPage {
 
   private user = new User("","");
   private selectedFile : File = null;
+  myForm: FormGroup;
 
-  
-  constructor(private _auth:AuthProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private _auth: AuthProvider, public http: HttpClient, public navCtrl: NavController) {
+    this.user = new User("","");
+    this.myForm = new FormGroup({
+      userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      userMail: new FormControl('', [Validators.required, Validators.pattern(".+\@.+\..")]),
+      userPassword: new FormControl('', [Validators.required, Validators.minLength(3)])
+    });
   }
 
   ionViewDidLoad() {

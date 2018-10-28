@@ -34946,6 +34946,26 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-home .cards-container {
+  background-size: cover;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+page-home ion-card {
+  position: relative;
+  text-align: center;
+}
+
+page-home .card-title {
+  position: absolute;
+  top: 36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
 page-login .spinner {
   display: block;
   margin: auto;
