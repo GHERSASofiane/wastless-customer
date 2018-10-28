@@ -33,6 +33,7 @@ import { MyPubsProvider } from '../providers/my-pubs/my-pubs';
 import { EditProductProvider } from '../providers/edit-product/edit-product'; 
 import { ChatPage } from '../pages/chat/chat';
 import { ChatProvider } from '../providers/chat/chat';
+import { UserHomePage } from '../pages/user-home/user-home';
 
 
 
@@ -52,7 +53,8 @@ import { ChatProvider } from '../providers/chat/chat';
     ValidateProductPage,  
     WeatherPage,
     MenuPage,
-    ChatPage 
+    ChatPage,
+    UserHomePage
     
   ],
   imports: [
@@ -85,7 +87,8 @@ import { ChatProvider } from '../providers/chat/chat';
     ValidateProductPage,  
     WeatherPage,
     MenuPage,
-    ChatPage 
+    ChatPage,
+    UserHomePage
 
   ],
   providers: [
